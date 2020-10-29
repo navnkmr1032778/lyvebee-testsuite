@@ -16,7 +16,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 import com.aventstack.extentreports.Status;
-import com.solutionstar.swaftee.constants.WebDriverConstants;
 import com.solutionstar.swaftee.utils.CSVParserUtils;
 import com.solutionstar.swaftee.utils.CommonUtils;
 import com.solutionstar.swaftee.utils.NadaEMailService;
@@ -201,7 +200,8 @@ public class TestMain extends AppTest {
 	public void fail(String message) {
 		String additionalDetails = "test failed";
 		Assert.fail(message + additionalDetails);
-		takeScreenShot(WebDriverConstants.PATH_TO_BROWSER_SCREENSHOT + message + ".png");
+		// takeScreenShot(WebDriverConstants.PATH_TO_BROWSER_SCREENSHOT + message +
+		// ".png");
 	}
 
 	public void fail(String message, Exception e) {

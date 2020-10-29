@@ -13,9 +13,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<grid>false</grid>
+		<grid>true</grid>
 		<gridbrowser>chrome</gridbrowser>
-		<gridserver>localhost</gridserver>
+		<gridserver>3.101.49.114</gridserver>
 		<gridport>4444</gridport>
 		<gridplatform>windows</gridplatform>
 		<testenv>stage</testenv>

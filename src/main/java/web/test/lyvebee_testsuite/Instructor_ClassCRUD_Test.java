@@ -62,12 +62,14 @@ public class Instructor_ClassCRUD_Test extends Instructor_SignIn_Test {
 	@Test(description = "Verify delete class feature", dependsOnMethods = { "testCreateClass" }, priority = 4)
 	public void testDeleteClass() {
 		try {
-			instructorCreateClassesPage.deleteClass(classListCreated.get(0).getClassName());
-			if (instructorCreateClassesPage.isClassCardPresent(classListCreated.get(0)))
+			userHomePage.goToMyProfilePageFromMobileView();
+			userProfilePage.goToCreateClassPage();
+			instructorCreateClassesPage.deleteClass(classListCreated.get(1).getClassName());
+			if (instructorCreateClassesPage.isClassCardPresent(classListCreated.get(1)))
 				Assert.fail("Created class card present in the classes section of CreateClass page after deletion.");
-			log("CLASS DELETED SUCCESSFULLY. DELETED CLASS NAME::" + classListCreated.get(0).getClassName());
-			log("CLASS CARD NOT PRESENT IN THE VIEW MY CLASS PAGE::" + classListCreated.get(0).getClassName());
-			classListCreated.remove(0);
+			log("CLASS DELETED SUCCESSFULLY. DELETED CLASS NAME::" + classListCreated.get(1).getClassName());
+			log("CLASS CARD NOT PRESENT IN THE VIEW MY CLASS PAGE::" + classListCreated.get(1).getClassName());
+			classListCreated.remove(1);
 		} catch (Exception e) {
 			e.printStackTrace();
 			AssertJUnit.fail("Exception happened in deleteClass::" + ExceptionUtils.getFullStackTrace(e));

@@ -8,8 +8,7 @@ import web.test.lyvebee_testsuite.contants.TestConstant;
 
 public class User_AllSignIn_Test extends User_SignIn_Test {
 
-	@Test(description = "Verify SignIn Using Google For Customer", dependsOnMethods = {
-			"testFacebookSignInConsumer" }, priority = 3)
+	@Test(description = "Verify SignIn Using Google For Customer", priority = 3)
 	public void testGoogleSignInConsumer() {
 		try {
 			mainPage.logOut();
