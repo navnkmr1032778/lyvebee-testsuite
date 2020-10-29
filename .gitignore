@@ -1,0 +1,13 @@
+# exclude
+target/
+test-output/
+External Jars/
+.DS_Store
+.exe
+.classpath
+.settings
+3rdParty/
+3rdParty/*
+.classpath
+.settings/*
+.project
