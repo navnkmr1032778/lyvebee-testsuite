@@ -86,10 +86,6 @@ public class Email_Test extends TestMain {
 		EmailMessage mailMessage = nadaMailService.getMessageWithSubjectContainsWith(inbox,
 				TestConstant.MAIL_USER_SIGNIN_SUBJECT_STRING);
 		String html = mailMessage.getHtml();
-		String htmltri = html.trim();
-		System.out.println("\n\n\n");
-		System.out.println("HTML TEXT OF MAIL::" + htmltri);
-		System.out.println("\n\n\n");
 
 		Pattern p = Pattern.compile("<a href='(.*)'>Sign in to LyveBee Inc");
 		Matcher m = p.matcher(html);
