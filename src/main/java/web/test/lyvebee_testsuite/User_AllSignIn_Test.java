@@ -24,8 +24,7 @@ public class User_AllSignIn_Test extends User_SignIn_Test {
 		}
 	}
 
-	@Test(description = "Verify SignIn Instructor", dependsOnMethods = {
-			"testSignInInvitationEmailConsumer" }, priority = 2)
+	@Test(description = "Verify SignIn Instructor", priority = 2)
 
 	public void testFacebookSignInConsumer() {
 		try {

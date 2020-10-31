@@ -1,6 +1,9 @@
 package web.test.lyvebee_testsuite;
 
+import java.net.URLDecoder;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.solutionstar.swaftee.utils.EmailMessage;
 import com.solutionstar.swaftee.utils.InboxEmail;
@@ -64,5 +67,40 @@ public class Email_Test extends TestMain {
 		if (!html.contains("CHAT WITH PARTICIPANT"))
 			return false;
 		return true;
+	}
+
+	public static String testUserSignInMail(String mail) throws Exception {
+		Thread.sleep(15000);
+		System.out.println(mail);
+		int i = 24;
+		List<InboxEmail> inbox = nadaMailService.getInboxByEMail(mail);
+		while (inbox.size() == 0 && i > 0) {
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			inbox = nadaMailService.getInboxByEMail(mail);
+			i--;
+		}
+		EmailMessage mailMessage = nadaMailService.getMessageWithSubjectContainsWith(inbox,
+				TestConstant.MAIL_USER_SIGNIN_SUBJECT_STRING);
+		String html = mailMessage.getHtml();
+		String htmltri = html.trim();
+		System.out.println("\n\n\n");
+		System.out.println("HTML STRING OF ENROLLMENT MAIL::" + htmltri);
+		System.out.println("\n\n\n");
+
+		Pattern p = Pattern.compile("<a href='(.*)'>Sign in to LyveBee Inc");
+		Matcher m = p.matcher(html);
+
+		String finalvalue = null;
+		while (m.find()) {
+			finalvalue = m.group(1);
+		}
+		finalvalue = URLDecoder.decode(finalvalue, "UTF-18");
+		finalvalue = finalvalue.replace("&amp;", "&");
+		getLogger().info("Link to Sign In: " + finalvalue);
+		return finalvalue;
 	}
 }
