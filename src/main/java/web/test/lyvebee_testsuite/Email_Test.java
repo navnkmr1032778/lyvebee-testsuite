@@ -88,7 +88,7 @@ public class Email_Test extends TestMain {
 		String html = mailMessage.getHtml();
 		String htmltri = html.trim();
 		System.out.println("\n\n\n");
-		System.out.println("HTML STRING OF ENROLLMENT MAIL::" + htmltri);
+		System.out.println("HTML TEXT OF MAIL::" + htmltri);
 		System.out.println("\n\n\n");
 
 		Pattern p = Pattern.compile("<a href='(.*)'>Sign in to LyveBee Inc");
