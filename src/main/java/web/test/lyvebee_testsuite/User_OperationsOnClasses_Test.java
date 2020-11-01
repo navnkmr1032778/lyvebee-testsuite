@@ -84,7 +84,7 @@ public class User_OperationsOnClasses_Test extends User_SignIn_Test {
 			log("ENROLLING FOR THE CLASS SESSION SUCCESSFULL");
 
 			userPaymentPage.validate();
-			userPaymentPage.addNewCardFirstTime("CardName", "4242424242424242", "1020", "123", "33176");
+			userPaymentPage.addNewCardFirstTime("CardName", "4242424242424242", "1023", "123", "33176");
 			userPaymentPage.proceedToPayment();
 			userViewMySessionsPage.validate();
 			log("PAYMENT CARD DETAILS ADDED SUCCESSFULLY");
