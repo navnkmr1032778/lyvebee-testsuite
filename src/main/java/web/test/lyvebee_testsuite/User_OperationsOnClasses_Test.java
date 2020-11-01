@@ -161,7 +161,7 @@ public class User_OperationsOnClasses_Test extends User_SignIn_Test {
 			userSearchClassesPage.searchClass(classListCreated.get(0).getClassName());
 			userSearchClassesPage.goToClassDetailPage(classListCreated.get(0).getClassName());
 			userClassDetailPage.enrollNextClass();
-			userPaymentPage.addNewCardFirstTime("CardName", "4242424242424242", "1020", "123", "33176");
+			userPaymentPage.addNewCardFirstTime("CardName", "4242424242424242", "1023", "123", "33176");
 			userPaymentPage.proceedToPayment();
 
 			// Cancel a session
