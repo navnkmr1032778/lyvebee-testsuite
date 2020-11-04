@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
+import web.test.lyvebee_testsuite.contants.TestConstant;
+
 public class User_Profile_Test extends User_SignIn_Test {
 
 	@Test(description = "Verify profile name update by customer", dependsOnMethods = {
@@ -111,28 +113,31 @@ public class User_Profile_Test extends User_SignIn_Test {
 
 	public void testAddPaymentAlertOnMyProfilePage() {
 		try {
-			mainPage.goToMyProfilePageFromMobileView();
+			if (TestConstant.ENVIRONMENT.equals("stage")) {
+				mainPage.goToMyProfilePageFromMobileView();
 
-			if (!userProfilePage.isAddPaymentAlertPresent()) {
-				Assert.fail("Alert for PaymentCardAdd is not present when the Payment card is not added");
+				if (!userProfilePage.isAddPaymentAlertPresent()) {
+					Assert.fail("Alert for PaymentCardAdd is not present when the Payment card is not added");
+				}
+				log("ALERT FOR ADD PAYMENT PRESENT IN THE MY PROFILE PAGE");
+
+				userProfilePage.goToEditProfilePage();
+				userProfilePage.goToPaymentPageFromAlert();
+				log("CUSTOMER ADD PAYMENT PAGE LOADED SUCCESSFUL");
+
+				userPaymentPage.addNewCardFirstTime("AutoCardName", "4242424242424242", "1023", "342", "33176");
+				userPaymentPage.clickSaveButton();
+				log("PAYMENT CARD ADDED SUCCESSFULLY");
+
+				loadMainPage();
+				mainPage.goToMyProfilePageFromHeader();
+				if (userProfilePage.isAddPaymentAlertPresent()) {
+					Assert.fail("Alert for PaymentCardAdd is present when the Payment card is added");
+				}
+				log("ALERT FOR ADD PAYMENT NOT PRESENT IN THE MY PROFILE PAGE");
+			} else {
+				log("In Prod environment we cant set up the test payment cards");
 			}
-			log("ALERT FOR ADD PAYMENT PRESENT IN THE MY PROFILE PAGE");
-
-			userProfilePage.goToEditProfilePage();
-			userProfilePage.goToPaymentPageFromAlert();
-			log("CUSTOMER ADD PAYMENT PAGE LOADED SUCCESSFUL");
-
-			userPaymentPage.addNewCardFirstTime("AutoCardName", "4242424242424242", "1023", "342", "33176");
-			userPaymentPage.clickSaveButton();
-			log("PAYMENT CARD ADDED SUCCESSFULLY");
-
-			loadMainPage();
-			mainPage.goToMyProfilePageFromHeader();
-			if (userProfilePage.isAddPaymentAlertPresent()) {
-				Assert.fail("Alert for PaymentCardAdd is present when the Payment card is added");
-			}
-			log("ALERT FOR ADD PAYMENT NOT PRESENT IN THE MY PROFILE PAGE");
-
 		} catch (Exception e) {
 			AssertJUnit.fail("Exception happened in testSignInInstructor::" + ExceptionUtils.getFullStackTrace(e));
 			e.printStackTrace();
