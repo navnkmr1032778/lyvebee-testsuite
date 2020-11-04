@@ -43,7 +43,7 @@ public class Instructor_Profile_Test extends Instructor_SignIn_Test {
 				Assert.fail("Speciality not added successful");
 			log("SPECIALITY ADDED SUCCESSFUL");
 
-			String videoPath = "https://www.lyvebee.com/start-session/";
+			String videoPath = "https://my.lyvebee.com/start-session/";
 			if (TestConstant.ENVIRONMENT.equalsIgnoreCase("stage"))
 				videoPath = "https://staging.lyvebee.com/start-session/";
 
