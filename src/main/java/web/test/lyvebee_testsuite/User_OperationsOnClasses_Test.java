@@ -6,6 +6,7 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import web.test.lyvebee.POJO.ClassPOJO;
+import web.test.lyvebee_testsuite.contants.TestConstant;
 
 public class User_OperationsOnClasses_Test extends User_SignIn_Test {
 
@@ -83,11 +84,13 @@ public class User_OperationsOnClasses_Test extends User_SignIn_Test {
 			userClassDetailPage.enrollClass();
 			log("ENROLLING FOR THE CLASS SESSION SUCCESSFULL");
 
-			userPaymentPage.validate();
-			userPaymentPage.addNewCardFirstTime("CardName", "4242424242424242", "1023", "123", "33176");
-			userPaymentPage.proceedToPayment();
-			userViewMySessionsPage.validate();
-			log("PAYMENT CARD DETAILS ADDED SUCCESSFULLY");
+			if (!TestConstant.ENVIRONMENT.equals("prod")) {
+				userPaymentPage.validate();
+				userPaymentPage.addNewCardFirstTime("CardName", "4242424242424242", "1023", "123", "33176");
+				userPaymentPage.proceedToPayment();
+				userViewMySessionsPage.validate();
+				log("PAYMENT CARD DETAILS ADDED SUCCESSFULLY");
+			}
 
 			if (!userViewMySessionsPage.isEnrolledClassCardPresent())
 				Assert.fail("Class Enrollment card not present or having errors in the View My Classes page.");
@@ -161,9 +164,10 @@ public class User_OperationsOnClasses_Test extends User_SignIn_Test {
 			userSearchClassesPage.searchClass(classListCreated.get(0).getClassName());
 			userSearchClassesPage.goToClassDetailPage(classListCreated.get(0).getClassName());
 			userClassDetailPage.enrollNextClass();
-			userPaymentPage.addNewCardFirstTime("CardName", "4242424242424242", "1023", "123", "33176");
-			userPaymentPage.proceedToPayment();
-
+			if (!TestConstant.ENVIRONMENT.equals("prod")) {
+				userPaymentPage.addNewCardFirstTime("CardName", "4242424242424242", "1023", "123", "33176");
+				userPaymentPage.proceedToPayment();
+			}
 			// Cancel a session
 			userViewMySessionsPage.cancelSessionWithName(classListCreated.get(0).getClassName());
 			if (!userViewMySessionsPage.isEnrolledClassCardPresent())

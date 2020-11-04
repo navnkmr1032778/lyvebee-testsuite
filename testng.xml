@@ -4,6 +4,8 @@
 	<test thread-count="1" name="Test" group-by-instances="true">
 		<classes>
 			<class
+				name="web.test.lyvebee_testsuite.Instructor_DeleteAllClasses_Test" />
+			<class
 				name="web.test.lyvebee_testsuite.Instructor_AddPaymentMethod_Test" />
 			<class
 				name="web.test.lyvebee_testsuite.Instructor_Profile_Test" />

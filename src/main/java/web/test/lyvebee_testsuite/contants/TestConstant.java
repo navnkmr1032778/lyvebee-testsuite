@@ -22,6 +22,8 @@ public class TestConstant {
 
 	public static String DEFAULT_CUSTOMER_USER_EMAIL = "automail20201017180010@clrmail.com";
 	public static String DEFAULT_INSTRUCTOR_USER_USERNAME = "heputid@getnada.com";
+	public static String DEFAULT_INSTRUCTOR_SIGNUP_USER_USERNAME = "zetyoc@getnada.com";
+	public static String DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER = "2058812777";
 
 	public static final String ENVIRONMENT = System.getProperty("testenv", "stage");
 
@@ -30,7 +32,7 @@ public class TestConstant {
 		if (ENVIRONMENT.equals("stage")) {
 
 		} else if (ENVIRONMENT.equals("prod")) {
-			LYVEBEE_BASE_PAGE_URL = "https://my.lyvebee.com/";
+			LYVEBEE_BASE_PAGE_URL = "https://www.lyvebee.com/";
 			DEFAULT_CUSTOMER_USER_EMAIL = "ripipe@getnada.com";
 			DEFAULT_INSTRUCTOR_USER_USERNAME = "xidyw@getnada.com";
 		}

@@ -25,6 +25,9 @@ public class Instructor_ClassCRUD_Test extends Instructor_SignIn_Test {
 				instructorCreateClassesPage.createClass(classPojo,
 						utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
 			}
+			if (!instructorCreateClassesPage.isClassCardPresent(classPojo))
+				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
+
 			instructorCreateClassesPage.goToViewMyClassesPageFromCreateClassPage();
 			instructorViewMyClassesPage.validate();
 			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
@@ -82,9 +85,9 @@ public class Instructor_ClassCRUD_Test extends Instructor_SignIn_Test {
 			ClassPOJO classPojoTemp = getClassPojo();
 			instructorCreateClassesPage.createClass(classPojoTemp,
 					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
+			classListCreated.add(classPojoTemp);
 			if (!instructorCreateClassesPage.isClassCardPresent(classPojoTemp))
 				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
-			classListCreated.add(classPojoTemp);
 			log("CLASS ADDED SUCCESSFULLY. CLASS NAME::" + classPojoTemp.getClassName());
 		} catch (Exception e) {
 			e.printStackTrace();

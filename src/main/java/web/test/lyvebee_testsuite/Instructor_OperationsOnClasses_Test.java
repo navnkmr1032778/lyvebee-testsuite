@@ -80,7 +80,7 @@ public class Instructor_OperationsOnClasses_Test extends Instructor_SignIn_Test 
 	public void testClassStartFeature() {
 		try {
 			instructorViewMyClassesPage.commpleteMeetSetUp();
-			mainPage.goToViewMySessionsPageFromMobileView();
+			mainPage.goToViewMyClassesPageFromMobileView();
 			log("INSTRUCTOR CAN START THE BOOKED CLASS SESSION AND SEE THE INSTRUCTION FOR GOOGLE MEET.");
 		} catch (Exception e) {
 			e.printStackTrace();

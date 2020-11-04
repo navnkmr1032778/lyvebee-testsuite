@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 
 import com.solutionstar.swaftee.utils.CommonUtils;
 
+import web.test.lyvebee_testsuite.contants.TestConstant;
+
 public class Instructor_Profile_Test extends Instructor_SignIn_Test {
 
 	@Test(description = "Verify reset password of Video account", dependsOnMethods = {
@@ -41,7 +43,11 @@ public class Instructor_Profile_Test extends Instructor_SignIn_Test {
 				Assert.fail("Speciality not added successful");
 			log("SPECIALITY ADDED SUCCESSFUL");
 
-			if (!instructorAddNewSpecialityPage.isSpecialityVideoURLPresent(speciality))
+			String videoPath = "https://www.lyvebee.com/start-session/";
+			if (TestConstant.ENVIRONMENT.equalsIgnoreCase("stage"))
+				videoPath = "https://staging.lyvebee.com/start-session/";
+
+			if (!instructorAddNewSpecialityPage.isSpecialityVideoURLPresent(videoPath + speciality))
 				Assert.fail("Speciality Video URL is present");
 
 			log("SPECIALITY VIDEO URL IS PRESENT");

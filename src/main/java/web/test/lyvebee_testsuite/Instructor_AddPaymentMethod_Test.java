@@ -26,16 +26,16 @@ public class Instructor_AddPaymentMethod_Test extends Instructor_SignIn_Test {
 			}
 			log("PAYPAL PAYMENT METHOD ADDED SUCCESSFULLY");
 
-			instructorAddPaymentMethodPage.addPaytmAccount();
+			instructorAddPaymentMethodPage.addVenmoAccount();
 			if (!instructorAddPaymentMethodPage.isPaymentAddedSuccessfully()) {
-				Assert.fail("Paytm payment is not added");
+				Assert.fail("Xoom payment is not added");
 			}
 			log("PAYTM PAYMENT METHOD ADDED SUCCESSFULLY");
 
 			instructorAddPaymentMethodPage.removePayPalAccount();
 			log("PAYPAL PAYMENT METHOD REMOVED SUCCESSFULLY");
 
-			instructorAddPaymentMethodPage.removePaytmAccount();
+			instructorAddPaymentMethodPage.removeVenmoAccount();
 			log("PAYTM PAYMENT METHOD REMOVED SUCCESSFULLY");
 		} catch (Exception e) {
 			e.printStackTrace();
