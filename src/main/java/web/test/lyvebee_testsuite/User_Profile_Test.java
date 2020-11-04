@@ -135,8 +135,6 @@ public class User_Profile_Test extends User_SignIn_Test {
 					Assert.fail("Alert for PaymentCardAdd is present when the Payment card is added");
 				}
 				log("ALERT FOR ADD PAYMENT NOT PRESENT IN THE MY PROFILE PAGE");
-			} else {
-				log("In Prod environment we cant set up the test payment cards");
 			}
 		} catch (Exception e) {
 			AssertJUnit.fail("Exception happened in testSignInInstructor::" + ExceptionUtils.getFullStackTrace(e));
