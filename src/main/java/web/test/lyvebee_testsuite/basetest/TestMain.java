@@ -190,7 +190,7 @@ public class TestMain extends AppTest {
 		return user;
 	}
 
-	public void log(String message) {
+	public static void log(String message) {
 		test.log(Status.INFO, message);
 		logger.info(message);
 	}

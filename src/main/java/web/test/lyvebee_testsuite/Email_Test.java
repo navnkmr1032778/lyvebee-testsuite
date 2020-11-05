@@ -16,6 +16,7 @@ import web.test.lyvebee_testsuite.contants.TestConstant;
 public class Email_Test extends TestMain {
 
 	public static boolean testEnrollMailForCustomer(UserPOJO user, ClassPOJO classPojo) throws Exception {
+		Thread.sleep(15000);
 		String mail = user.getUserEmail();
 		System.out.println(mail);
 		int i = 24;
@@ -44,6 +45,7 @@ public class Email_Test extends TestMain {
 	}
 
 	public static boolean testEnrollMailForInstructor(UserPOJO user, ClassPOJO classPojo) throws Exception {
+		Thread.sleep(15000);
 		String mail = user.getUserEmail();
 		System.out.println(mail);
 		int i = 24;
@@ -60,12 +62,17 @@ public class Email_Test extends TestMain {
 		EmailMessage mailMessage = nadaMailService.getMessageWithSubjectContainsWith(inbox,
 				TestConstant.MAIL_INSTRUCTOR_ENROLL_SUBJECT_STRING);
 		String html = mailMessage.getHtml();
-		if (!html.contains("Hi " + user.getUserName()))
+		if (!html.contains("Hi " + user.getUserName())) {
+			log("User " + user.getUserName() + " Not present in the mail");
 			return false;
-		if (!html.contains(classPojo.getClassName()))
+		}
+		if (!html.contains(classPojo.getClassName())) {
+			log("Class " + classPojo.getClassName() + "Not present in the mail");
 			return false;
-		if (!html.contains("CHAT WITH PARTICIPANT"))
+		}
+		if (!html.contains("CHAT WITH PARTICIPANT")) {
 			return false;
+		}
 		return true;
 	}
 
