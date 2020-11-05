@@ -44,9 +44,10 @@ public class Email_Test extends TestMain {
 		return true;
 	}
 
-	public static boolean testEnrollMailForInstructor(UserPOJO user, ClassPOJO classPojo) throws Exception {
+	public static boolean testEnrollMailForInstructor(UserPOJO adminUser, UserPOJO user, ClassPOJO classPojo)
+			throws Exception {
 		Thread.sleep(15000);
-		String mail = user.getUserEmail();
+		String mail = adminUser.getUserEmail();
 		System.out.println(mail);
 		int i = 24;
 		List<InboxEmail> inbox = nadaMailService.getInboxByEMail(mail);
