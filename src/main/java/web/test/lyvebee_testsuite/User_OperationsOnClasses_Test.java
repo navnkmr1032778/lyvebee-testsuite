@@ -106,12 +106,10 @@ public class User_OperationsOnClasses_Test extends User_SignIn_Test {
 			"testClassDetailFeature" }, priority = 7)
 	public void testClassEnrollEmailToCustomerFeature() {
 		try {
-			ClassPOJO classs = new ClassPOJO();
-			classs.setClassName(className);
 			log("ENROLLED CLASS NAME TO BE VERIFIED IN THE MAIL::" + className);
 			log("CUSTOMER USER EMAIL ID::" + user.getUserEmail());
 
-			if (!Email_Test.testEnrollMailForCustomer(user, classs))
+			if (!Email_Test.testEnrollMailForCustomer(user, classPojo))
 				Assert.fail(
 						"Class enrolled mail sent to customer has errors. Its not possible to take screenshot. Please have a look at it");
 		} catch (Exception e) {
@@ -129,7 +127,7 @@ public class User_OperationsOnClasses_Test extends User_SignIn_Test {
 			log("CLASS NAME TO BE VERIFIED IN THE MAIL OF INSTRUCTOR::" + className);
 			log("INSTRUCTOR USER EMAIL ID::" + getDefaultInstructorUser().getUserEmail());
 
-			if (!Email_Test.testEnrollMailForInstructor(getDefaultInstructorUser(), classs))
+			if (!Email_Test.testEnrollMailForInstructor(user, classs))
 				Assert.fail(
 						"Class enrolled mail sent to Instructor has errors. Its not possible to take screenshot. Please have a look at it");
 

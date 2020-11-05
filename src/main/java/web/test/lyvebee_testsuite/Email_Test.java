@@ -62,7 +62,7 @@ public class Email_Test extends TestMain {
 		EmailMessage mailMessage = nadaMailService.getMessageWithSubjectContainsWith(inbox,
 				TestConstant.MAIL_INSTRUCTOR_ENROLL_SUBJECT_STRING);
 		String html = mailMessage.getHtml();
-		if (!html.contains("Hi " + user.getUserName())) {
+		if (!html.contains("LyveBee client " + user.getUserName() + " has enrolled")) {
 			log("User " + user.getUserName() + " Not present in the mail");
 			return false;
 		}

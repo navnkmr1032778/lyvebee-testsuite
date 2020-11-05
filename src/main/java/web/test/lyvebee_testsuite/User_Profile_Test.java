@@ -22,6 +22,7 @@ public class User_Profile_Test extends User_SignIn_Test {
 			userProfilePage.updateName("AutoNameUpdated");
 			userProfilePage.saveProfile();
 			log("CUSTOMER PROFILE NAME UPDATED SUCCESSFULLY.");
+			user.setUserName("AutoNameUpdated");
 			userProfilePage.validate();
 			if (!userProfilePage.isProfileTitlePresent("AutoNameUpdated"))
 				Assert.fail("Updated profile Name is not presetn in the Profile page");
