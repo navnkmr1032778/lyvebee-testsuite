@@ -23,6 +23,7 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 	public void testCreateClassForThisWeekPeriod() {
 		try {
 			userHomePage.goToMyProfilePageFromMobileView();
+			mainPage.changeTimeZone(TestConstant.TIMEZONE_CHENNAITIME);
 			userProfilePage.goToCreateClassPage();
 			log("CREATE CLASS PAGE LOADED SUCCESSFUL");
 
