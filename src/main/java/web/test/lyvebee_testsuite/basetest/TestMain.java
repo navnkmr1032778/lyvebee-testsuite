@@ -58,7 +58,7 @@ public class TestMain extends AppTest {
 	public static List<UserPOJO> userEmailListCreated = new ArrayList<UserPOJO>();
 	public static List<UserPOJO> instructorUserEmailListCreated = new ArrayList<UserPOJO>();
 	public static List<UserPOJO> userSessionURL = new ArrayList<UserPOJO>();
-
+	public static ClassPOJO timeZoneClass;
 	// Main Pages
 	public Main_Page mainPage;
 

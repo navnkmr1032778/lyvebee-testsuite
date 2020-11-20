@@ -14,37 +14,18 @@ import org.testng.annotations.Test;
 import web.test.lyvebee.POJO.ClassPOJO;
 import web.test.lyvebee_testsuite.contants.TestConstant;
 
-public class Instructor_ClassTimeZoneRegression_Test extends Instructor_SignIn_Test {
+public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	ClassPOJO classPojo;
 	String classURL;
 	String sessionTime;
 	LocalDateTime localDate;
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testSignInInvitationEmailInstructor" }, priority = 2)
-	public void testCreateClass() {
+			"testSignInInvitationEmailConsumer" }, priority = 2)
+	public void testSearchClass() {
 		try {
-			userHomePage.goToMyProfilePageFromMobileView();
-			userProfilePage.goToCreateClassPage();
-			log("CREATE CLASS PAGE LOADED SUCCESSFUL");
 
-			classPojo = getClassPojo();
-			timeZoneClass = classPojo;
-			log("CLASS NAME TO BE CREATED::" + classPojo.getClassName());
-
-			mainPage.changeTimeZone(TestConstant.TIMEZONE_CHENNAITIME);
-			instructorCreateClassesPage.createClass(classPojo,
-					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
-
-			if (!instructorCreateClassesPage.isClassCardPresent(classPojo))
-				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
-			log("CLASS CARD PRESENT");
-
-			instructorCreateClassesPage.goToViewMyClassesPageFromCreateClassPage();
-			instructorViewMyClassesPage.validate();
-			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
-				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
-			log("CLASS CARD PRESENT IN UNBOOKED SECTION");
+			classPojo = timeZoneClass;
 
 			loadSearchClassPage();
 			userSearchClassesPage.searchClass(classPojo.getClassName());
@@ -63,7 +44,7 @@ public class Instructor_ClassTimeZoneRegression_Test extends Instructor_SignIn_T
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 3)
+			"testSearchClass" }, priority = 3)
 	public void testClassTimingForEasterTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
