@@ -10,7 +10,7 @@ import web.test.lyvebee_testsuite.contants.TestConstant;
 public class User_Profile_Test extends User_SignIn_Test {
 
 	@Test(description = "Verify profile name update by customer", dependsOnMethods = {
-			"testSignInInvitationEmailConsumer" }, priority = 0)
+			"testSignInInvitationEmailConsumer" }, priority = 2)
 	public void testUpdateNameInEditProfileConsumer() {
 		try {
 			mainPage.goToMyProfilePageFromHeader();
@@ -34,7 +34,7 @@ public class User_Profile_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Add Country alert on MyProfile page", dependsOnMethods = {
-			"testUpdateNameInEditProfileConsumer" }, priority = 1)
+			"testUpdateNameInEditProfileConsumer" }, priority = 3)
 	public void testAddCountryAlertOnMyProfilePage() {
 		try {
 
@@ -64,7 +64,7 @@ public class User_Profile_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify add state in the profile", dependsOnMethods = {
-			"testUpdateNameInEditProfileConsumer" }, priority = 2)
+			"testUpdateNameInEditProfileConsumer" }, priority = 4)
 	public void testAddStateInEditProfileConsumer() {
 		try {
 			mainPage.goToMyProfilePageFromMobileView();
@@ -82,7 +82,7 @@ public class User_Profile_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify add languages in the profile", dependsOnMethods = {
-			"testUpdateNameInEditProfileConsumer" }, priority = 3)
+			"testUpdateNameInEditProfileConsumer" }, priority = 5)
 	public void testAddLanguageInEditProfileConsumer() {
 		try {
 			mainPage.goToMyProfilePageFromMobileView();
@@ -110,7 +110,7 @@ public class User_Profile_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Add Payment alert on MyProfile page", dependsOnMethods = {
-			"testUpdateNameInEditProfileConsumer" }, priority = 4)
+			"testUpdateNameInEditProfileConsumer" }, priority = 6)
 
 	public void testAddPaymentAlertOnMyProfilePage() {
 		try {
@@ -144,7 +144,7 @@ public class User_Profile_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify become consultant page on Customer profile", dependsOnMethods = {
-			"testSignInInvitationEmailConsumer" }, priority = 4)
+			"testSignInInvitationEmailConsumer" }, priority = 7)
 	public void testBecomeConsultantOnMyProfilePageConsumer() {
 		try {
 			mainPage.goToMyProfilePageFromMobileView();

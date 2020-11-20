@@ -24,7 +24,8 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 			"testSignInInvitationEmailConsumer" }, priority = 2)
 	public void testSearchClass() {
 		try {
-
+			mainPage.goToMyProfilePageFromHeader();
+			mainPage.changeTimeZone(TestConstant.TIMEZONE_CHENNAITIME);
 			classPojo = timeZoneClass;
 
 			loadSearchClassPage();
