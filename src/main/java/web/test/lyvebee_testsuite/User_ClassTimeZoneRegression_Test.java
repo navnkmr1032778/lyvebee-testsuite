@@ -67,7 +67,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 4)
+			"testSearchClass" }, priority = 4)
 	public void testClassTimingForCentralTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -90,7 +90,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 5)
+			"testSearchClass" }, priority = 5)
 	public void testClassTimingForPacificTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -113,7 +113,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 6)
+			"testSearchClass" }, priority = 6)
 	public void testClassTimingForSingaporeTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -136,7 +136,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 7)
+			"testSearchClass" }, priority = 7)
 	public void testClassTimingForMelbourneTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -159,7 +159,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 8)
+			"testSearchClass" }, priority = 8)
 	public void testClassTimingForHawaiiTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -182,7 +182,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 9)
+			"testSearchClass" }, priority = 9)
 	public void testClassTimingForBangkokTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -205,7 +205,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 10)
+			"testSearchClass" }, priority = 10)
 	public void testClassTimingForGMTTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -228,7 +228,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 11)
+			"testSearchClass" }, priority = 11)
 	public void testClassTimingForAlaskaTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -251,7 +251,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 12)
+			"testSearchClass" }, priority = 12)
 	public void testClassTimingForBrasiliaTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -274,7 +274,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 13)
+			"testSearchClass" }, priority = 13)
 	public void testClassTimingForBerlinTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -297,7 +297,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 14)
+			"testSearchClass" }, priority = 14)
 	public void testClassTimingForBeirutTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -321,7 +321,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 
 	// cool
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 15)
+			"testSearchClass" }, priority = 15)
 	public void testClassTimingForKuwaitTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -344,7 +344,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 16)
+			"testSearchClass" }, priority = 16)
 	public void testClassTimingForAbudhabiTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -367,7 +367,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 17)
+			"testSearchClass" }, priority = 17)
 	public void testClassTimingForTokyoTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
@@ -390,7 +390,7 @@ public class User_ClassTimeZoneRegression_Test extends User_SignIn_Test {
 	}
 
 	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-			"testCreateClass" }, priority = 18)
+			"testSearchClass" }, priority = 18)
 	public void testClassTimingForBrisbannTimeZone() {
 		try {
 			mainPage.gotoURL(classURL);
