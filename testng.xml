@@ -5,19 +5,26 @@
 		<classes>
 			<class
 				name="web.test.lyvebee_testsuite.Instructor_DeleteAllClasses_Test" />
+			<!-- <class -->
+			<!-- name="web.test.lyvebee_testsuite.Instructor_AddPaymentMethod_Test" 
+				/> -->
+			<!-- <class -->
+			<!-- name="web.test.lyvebee_testsuite.Instructor_Profile_Test" /> -->
+			<!-- <class -->
+			<!-- name="web.test.lyvebee_testsuite.Instructor_ClassCRUD_Test" /> -->
+			<!-- <class name="web.test.lyvebee_testsuite.User_SignUp_Test" /> -->
+			<!-- <class name="web.test.lyvebee_testsuite.User_Profile_Test" /> -->
+			<!-- <class -->
+			<!-- name="web.test.lyvebee_testsuite.User_OperationsOnClasses_Test" /> -->
+			<!-- <class -->
+			<!-- name="web.test.lyvebee_testsuite.Instructor_OperationsOnClasses_Test" 
+				/> -->
+			<!-- <class name="web.test.lyvebee_testsuite.User_AllSignIn_Test" /> -->
+			<!-- <class -->
+			<!-- name="web.test.lyvebee_testsuite.Instructor_CreateClassRegression_Test" 
+				/> -->
 			<class
-				name="web.test.lyvebee_testsuite.Instructor_AddPaymentMethod_Test" />
-			<class
-				name="web.test.lyvebee_testsuite.Instructor_Profile_Test" />
-			<class
-				name="web.test.lyvebee_testsuite.Instructor_ClassCRUD_Test" />
-			<class name="web.test.lyvebee_testsuite.User_SignUp_Test" />
-			<class name="web.test.lyvebee_testsuite.User_Profile_Test" />
-			<class
-				name="web.test.lyvebee_testsuite.User_OperationsOnClasses_Test" />
-			<class
-				name="web.test.lyvebee_testsuite.Instructor_OperationsOnClasses_Test" />
-			<class name="web.test.lyvebee_testsuite.User_AllSignIn_Test" />
+				name="web.test.lyvebee_testsuite.Instructor_ClassTimeZoneRegression_Test" />
 		</classes>
 	</test>
 </suite>  

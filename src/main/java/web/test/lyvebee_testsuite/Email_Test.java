@@ -95,7 +95,7 @@ public class Email_Test extends TestMain {
 				TestConstant.MAIL_USER_SIGNIN_SUBJECT_STRING);
 		String html = mailMessage.getHtml();
 
-		Pattern p = Pattern.compile("<a href='(.*)'>Sign in to LyveBee Inc");
+		Pattern p = Pattern.compile("<a href=\"(.*)\" target(.*)\">Sign in to LyveBee Inc");
 		Matcher m = p.matcher(html);
 
 		String finalvalue = null;

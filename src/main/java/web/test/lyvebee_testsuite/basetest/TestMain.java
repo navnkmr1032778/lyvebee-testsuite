@@ -114,6 +114,10 @@ public class TestMain extends AppTest {
 		instructorAddNewSpecialityPage = new Instructor_AddNewSpeciality_Page(getDriver());
 	}
 
+	public void loadSearchClassPage() {
+		mainPage.gotoURL(TestConstant.CLASSPAGE_URL);
+	}
+
 	public void loadMainPage() {
 		if (hasDriver() && mainPage != null) {
 			mainPage = mainPage.loadMainPage(TestConstant.LYVEBEE_BASE_PAGE_URL);
@@ -149,7 +153,7 @@ public class TestMain extends AppTest {
 
 	public ClassPOJO getClassPojo() {
 		ClassPOJO classPojo = new ClassPOJO("AutoClass" + CommonUtils.getCurrentTimeString(), "AutoClassDescription",
-				"9:00AM", "10:00AM", "AutoInstructorName", "12", "This Week", "20");
+				"11:00PM", "11:30PM", "AutoInstructorName", "12", "This Week", "20");
 		if (TestConstant.ENVIRONMENT.equals("prod"))
 			classPojo.setClassCost("0");
 		return classPojo;

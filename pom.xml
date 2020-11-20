@@ -18,7 +18,7 @@
 		<gridserver>3.101.49.114</gridserver>
 		<gridport>4444</gridport>
 		<gridplatform>windows</gridplatform>
-		<testenv>stage</testenv>
+		<testenv>prod</testenv>
 		<suiteXmlFile>testng.xml</suiteXmlFile>
 		<inputDataFile>input</inputDataFile>
 		<imageLocation></imageLocation>
@@ -96,7 +96,5 @@
 			<version>6.6.0</version>
 			<scope>test</scope>
 		</dependency>
-
-
 	</dependencies>
 </project>
