@@ -18,214 +18,214 @@ import web.test.lyvebee_testsuite.contants.TestConstant;
 public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Test {
 	ClassPOJO classPojo;
 
-//	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-//			"testSignInInvitationEmailInstructor" }, priority = 2)
-//	public void testCreateClassForThisWeekPeriod() {
-//		try {
-//			userHomePage.goToMyProfilePageFromMobileView();
-//			userProfilePage.goToCreateClassPage();
-//			log("CREATE CLASS PAGE LOADED SUCCESSFUL");
-//
-//			classPojo = getClassPojo();
-//			log("CLASS NAME TO BE CREATED::" + classPojo.getClassName());
-//			instructorCreateClassesPage.createClass(classPojo,
-//					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
-//
-//			if (!instructorCreateClassesPage.isClassCardPresent(classPojo))
-//				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
-//			log("CLASS CARD PRESENT");
-//
-//			instructorCreateClassesPage.goToViewMyClassesPageFromCreateClassPage();
-//			instructorViewMyClassesPage.validate();
-//			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
-//				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
-//			log("CLASS CARD PRESENT IN UNBOOKED SECTION");
-//
-//			int numberOfActualSessions = instructorViewMyClassesPage
-//					.getNumberOfSessionPresent(classPojo.getClassName());
-//			if (!(numberOfActualSessions == 5))
-//				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 5");
-//
-//			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
-//			Collections.sort(sessionDateList);
-//
-//			List<String> expectedDateList = getDatesList(7);
-//
-//			if (!sessionDateList.equals(expectedDateList))
-//				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
-//			log("CLASS CARD DATES ARE CORRECTLY PRESENT IN UNBOOKED SECTION");
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
-//		}
-//	}
-//
-//	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-//			"testCreateClassForThisWeekPeriod" }, priority = 3)
-//	public void testCreateClassForThisWeekPeriodInClassProfilePage() {
-//		try {
-//			loadSearchClassPage();
-//			userSearchClassesPage.searchClass(classPojo.getClassName());
-//			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
-//			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
-//
-//			if (numberOfActualSessions != 5)
-//				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
-//						+ "But expecting 5");
-//
-//			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
-//			Collections.sort(sessionDateList);
-//
-//			List<String> expectedDateList = getDatesListForClassProfile(7);
-//
-//			if (!sessionDateList.equals(expectedDateList))
-//				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
-//						+ "but expecting " + expectedDateList);
-//			log("CLASS CARD DATES ARE CORRECTLY PRESENT IN CLASS PROFILE PAGE");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
-//		}
-//	}
+	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
+			"testSignInInvitationEmailInstructor" }, priority = 2)
+	public void testCreateClassForThisWeekPeriod() {
+		try {
+			userHomePage.goToMyProfilePageFromMobileView();
+			userProfilePage.goToCreateClassPage();
+			log("CREATE CLASS PAGE LOADED SUCCESSFUL");
 
-//	@Test(description = "Verify Create Class with This Week And Next Week period feature", dependsOnMethods = {
-//			"testSignInInvitationEmailInstructor" }, priority = 4)
-//	public void testCreateClassForThisWeekAndNextWeekPeriod() {
-//		try {
-//			userHomePage.goToMyProfilePageFromMobileView();
-//			userProfilePage.goToCreateClassPage();
-//			log("CREATE CLASS PAGE LOADED SUCCESSFUL");
-//
-//			classPojo = getClassPojo();
-//			log("CLASS NAME TO BE CREATED::" + classPojo.getClassName());
-//			classPojo.setClassPeriod("This Week and Next Week");
-//			instructorCreateClassesPage.createClass(classPojo,
-//					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
-//
-//			if (!instructorCreateClassesPage.isClassCardPresent(classPojo))
-//				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
-//
-//			instructorCreateClassesPage.goToViewMyClassesPageFromCreateClassPage();
-//			instructorViewMyClassesPage.validate();
-//			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
-//				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
-//
-//			int numberOfActualSessions = instructorViewMyClassesPage
-//					.getNumberOfSessionPresent(classPojo.getClassName());
-//			if (!(numberOfActualSessions == 10))
-//				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 10");
-//
-//			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
-//			Collections.sort(sessionDateList);
-//
-//			List<String> expectedDateList = getDatesList(14);
-//
-//			if (!sessionDateList.equals(expectedDateList))
-//				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
-//		}
-//	}
-//
-//	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-//			"testCreateClassForThisWeekAndNextWeekPeriod" }, priority = 5)
-//	public void testCreateClassForThisWeekAndNextWeekPeriodInClassProfilePage() {
-//		try {
-//			loadSearchClassPage();
-//			userSearchClassesPage.searchClass(classPojo.getClassName());
-//			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
-//			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
-//
-//			if (numberOfActualSessions != 10)
-//				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
-//						+ "But expecting 5");
-//
-//			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
-//			Collections.sort(sessionDateList);
-//
-//			List<String> expectedDateList = getDatesListForClassProfile(14);
-//
-//			if (!sessionDateList.equals(expectedDateList))
-//				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
-//						+ "but expecting " + expectedDateList);
-//			log("CLASS CARD DATES ARE CORRECTLY PRESENT IN CLASS PROFILE PAGE");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
-//		}
-//	}
+			classPojo = getClassPojo();
+			log("CLASS NAME TO BE CREATED::" + classPojo.getClassName());
+			instructorCreateClassesPage.createClass(classPojo,
+					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
 
-//	@Test(description = "Verify Create Class with This Week And Next 2 Week period feature", dependsOnMethods = {
-//			"testSignInInvitationEmailInstructor" }, priority = 6)
-//	public void testCreateClassForThisWeekAndNext2WeekPeriod() {
-//		try {
-//			userHomePage.goToMyProfilePageFromMobileView();
-//			userProfilePage.goToCreateClassPage();
-//			log("CREATE CLASS PAGE LOADED SUCCESSFUL");
-//
-//			classPojo = getClassPojo();
-//			log("CLASS NAME TO BE CREATED::" + classPojo.getClassName());
-//			classPojo.setClassPeriod("This Week and Next 2 Weeks");
-//			instructorCreateClassesPage.createClass(classPojo,
-//					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
-//
-//			if (!instructorCreateClassesPage.isClassCardPresent(classPojo))
-//				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
-//
-//			instructorCreateClassesPage.goToViewMyClassesPageFromCreateClassPage();
-//			instructorViewMyClassesPage.validate();
-//			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
-//				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
-//
-//			int numberOfActualSessions = instructorViewMyClassesPage
-//					.getNumberOfSessionPresent(classPojo.getClassName());
-//			if (!(numberOfActualSessions == 15))
-//				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 10");
-//
-//			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
-//			Collections.sort(sessionDateList);
-//
-//			List<String> expectedDateList = getDatesList(21);
-//
-//			if (!sessionDateList.equals(expectedDateList))
-//				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
-//		}
-//	}
-//
-//	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
-//			"testCreateClassForThisWeekAndNext2WeekPeriod" }, priority = 7)
-//	public void testCreateClassForThisWeekAndNext2WeekPeriodInClassProfilePage() {
-//		try {
-//			loadSearchClassPage();
-//			userSearchClassesPage.searchClass(classPojo.getClassName());
-//			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
-//			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
-//
-//			if (numberOfActualSessions != 15)
-//				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
-//						+ "But expecting 5");
-//
-//			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
-//			Collections.sort(sessionDateList);
-//
-//			List<String> expectedDateList = getDatesListForClassProfile(21);
-//
-//			if (!sessionDateList.equals(expectedDateList))
-//				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
-//						+ "but expecting " + expectedDateList);
-//			log("CLASS CARD DATES ARE CORRECTLY PRESENT IN CLASS PROFILE PAGE");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
-//		}
-//	}
+			if (!instructorCreateClassesPage.isClassCardPresent(classPojo))
+				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
+			log("CLASS CARD PRESENT");
+
+			instructorCreateClassesPage.goToViewMyClassesPageFromCreateClassPage();
+			instructorViewMyClassesPage.validate();
+			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
+				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
+			log("CLASS CARD PRESENT IN UNBOOKED SECTION");
+
+			int numberOfActualSessions = instructorViewMyClassesPage
+					.getNumberOfSessionPresent(classPojo.getClassName());
+			if (!(numberOfActualSessions == 5))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 5");
+
+			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
+			Collections.sort(sessionDateList);
+
+			List<String> expectedDateList = getDatesList(7);
+
+			if (!sessionDateList.equals(expectedDateList))
+				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
+			log("CLASS CARD DATES ARE CORRECTLY PRESENT IN UNBOOKED SECTION");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
+		}
+	}
+
+	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
+			"testCreateClassForThisWeekPeriod" }, priority = 3)
+	public void testCreateClassForThisWeekPeriodInClassProfilePage() {
+		try {
+			loadSearchClassPage();
+			userSearchClassesPage.searchClass(classPojo.getClassName());
+			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
+			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+
+			if (numberOfActualSessions != 5)
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
+						+ "But expecting 5");
+
+			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
+			Collections.sort(sessionDateList);
+
+			List<String> expectedDateList = getDatesListForClassProfile(7);
+
+			if (!sessionDateList.equals(expectedDateList))
+				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
+						+ "but expecting " + expectedDateList);
+			log("CLASS CARD DATES ARE CORRECTLY PRESENT IN CLASS PROFILE PAGE");
+		} catch (Exception e) {
+			e.printStackTrace();
+			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
+		}
+	}
+
+	@Test(description = "Verify Create Class with This Week And Next Week period feature", dependsOnMethods = {
+			"testSignInInvitationEmailInstructor" }, priority = 4)
+	public void testCreateClassForThisWeekAndNextWeekPeriod() {
+		try {
+			userHomePage.goToMyProfilePageFromMobileView();
+			userProfilePage.goToCreateClassPage();
+			log("CREATE CLASS PAGE LOADED SUCCESSFUL");
+
+			classPojo = getClassPojo();
+			log("CLASS NAME TO BE CREATED::" + classPojo.getClassName());
+			classPojo.setClassPeriod("This Week and Next Week");
+			instructorCreateClassesPage.createClass(classPojo,
+					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
+
+			if (!instructorCreateClassesPage.isClassCardPresent(classPojo))
+				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
+
+			instructorCreateClassesPage.goToViewMyClassesPageFromCreateClassPage();
+			instructorViewMyClassesPage.validate();
+			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
+				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
+
+			int numberOfActualSessions = instructorViewMyClassesPage
+					.getNumberOfSessionPresent(classPojo.getClassName());
+			if (!(numberOfActualSessions == 10))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 10");
+
+			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
+			Collections.sort(sessionDateList);
+
+			List<String> expectedDateList = getDatesList(14);
+
+			if (!sessionDateList.equals(expectedDateList))
+				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
+		}
+	}
+
+	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
+			"testCreateClassForThisWeekAndNextWeekPeriod" }, priority = 5)
+	public void testCreateClassForThisWeekAndNextWeekPeriodInClassProfilePage() {
+		try {
+			loadSearchClassPage();
+			userSearchClassesPage.searchClass(classPojo.getClassName());
+			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
+			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+
+			if (numberOfActualSessions != 10)
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
+						+ "But expecting 5");
+
+			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
+			Collections.sort(sessionDateList);
+
+			List<String> expectedDateList = getDatesListForClassProfile(14);
+
+			if (!sessionDateList.equals(expectedDateList))
+				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
+						+ "but expecting " + expectedDateList);
+			log("CLASS CARD DATES ARE CORRECTLY PRESENT IN CLASS PROFILE PAGE");
+		} catch (Exception e) {
+			e.printStackTrace();
+			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
+		}
+	}
+
+	@Test(description = "Verify Create Class with This Week And Next 2 Week period feature", dependsOnMethods = {
+			"testSignInInvitationEmailInstructor" }, priority = 6)
+	public void testCreateClassForThisWeekAndNext2WeekPeriod() {
+		try {
+			userHomePage.goToMyProfilePageFromMobileView();
+			userProfilePage.goToCreateClassPage();
+			log("CREATE CLASS PAGE LOADED SUCCESSFUL");
+
+			classPojo = getClassPojo();
+			log("CLASS NAME TO BE CREATED::" + classPojo.getClassName());
+			classPojo.setClassPeriod("This Week and Next 2 Weeks");
+			instructorCreateClassesPage.createClass(classPojo,
+					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);
+
+			if (!instructorCreateClassesPage.isClassCardPresent(classPojo))
+				Assert.fail("Created class card not present in the classes section of CreateClass page after adding.");
+
+			instructorCreateClassesPage.goToViewMyClassesPageFromCreateClassPage();
+			instructorViewMyClassesPage.validate();
+			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
+				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
+
+			int numberOfActualSessions = instructorViewMyClassesPage
+					.getNumberOfSessionPresent(classPojo.getClassName());
+			if (!(numberOfActualSessions == 15))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 10");
+
+			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
+			Collections.sort(sessionDateList);
+
+			List<String> expectedDateList = getDatesList(21);
+
+			if (!sessionDateList.equals(expectedDateList))
+				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
+		}
+	}
+
+	@Test(description = "Verify Create Class with This Week period feature", dependsOnMethods = {
+			"testCreateClassForThisWeekAndNext2WeekPeriod" }, priority = 7)
+	public void testCreateClassForThisWeekAndNext2WeekPeriodInClassProfilePage() {
+		try {
+			loadSearchClassPage();
+			userSearchClassesPage.searchClass(classPojo.getClassName());
+			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
+			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+
+			if (numberOfActualSessions != 15)
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
+						+ "But expecting 5");
+
+			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
+			Collections.sort(sessionDateList);
+
+			List<String> expectedDateList = getDatesListForClassProfile(21);
+
+			if (!sessionDateList.equals(expectedDateList))
+				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
+						+ "but expecting " + expectedDateList);
+			log("CLASS CARD DATES ARE CORRECTLY PRESENT IN CLASS PROFILE PAGE");
+		} catch (Exception e) {
+			e.printStackTrace();
+			AssertJUnit.fail("Exception happened in createClass::" + ExceptionUtils.getFullStackTrace(e));
+		}
+	}
 
 	@Test(description = "Verify Create Class with This Week And Next 3 Week period feature", dependsOnMethods = {
 			"testSignInInvitationEmailInstructor" }, priority = 8)
