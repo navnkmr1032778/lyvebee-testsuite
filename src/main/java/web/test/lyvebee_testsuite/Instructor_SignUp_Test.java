@@ -1,34 +1,18 @@
 package web.test.lyvebee_testsuite;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import com.solutionstar.swaftee.utils.EmailMessage;
-import com.solutionstar.swaftee.utils.InboxEmail;
 
 import web.test.lyvebee.POJO.UserPOJO;
 import web.test.lyvebee_testsuite.basetest.TestMain;
 import web.test.lyvebee_testsuite.contants.TestConstant;
-import web.test.pom.instructor.Instructor_DeleteAccountFromAPI_Page;
 
 public class Instructor_SignUp_Test extends TestMain {
 
 	int invalidImageCount = 0;
 	UserPOJO user;
-
-	@BeforeClass
-	public void beforeClass() {
-		instructorDeleteAcccountFromAPI = new Instructor_DeleteAccountFromAPI_Page(getDriver());
-	}
 
 	@Test(description = "Verify Instructor account deletion", priority = 0)
 	public void testDeleteAccountFromApi() {
@@ -44,7 +28,7 @@ public class Instructor_SignUp_Test extends TestMain {
 		}
 	}
 
-	@Test(description = "Verify SignUp Consumer")
+	@Test(description = "Verify SignUp Consumer", dependsOnMethods = { "testDeleteAccountFromApi" }, priority = 1)
 	public void testSignUpPage() {
 		try {
 			loadMainPage();
@@ -58,62 +42,55 @@ public class Instructor_SignUp_Test extends TestMain {
 		}
 	}
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testSignUpPage" })
-	public void testSignUpInvitationEmail() throws UnsupportedEncodingException {
+	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testSignUpPage" }, priority = 2)
+	public void testSignUpInvitationEmail() {
 		try {
 			String mail = user.getUserEmail();
 			System.out.println(mail);
-			int i = 24;
-			List<InboxEmail> inbox = nadaMailService.getInboxByEMail(mail);
-			while (inbox.size() == 0 && i > 0) {
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+			getDriver().get(Email_Test.testUserSignInMail(mail));
+			int i = 0;
+			while (mainPage.isInvalidCodePresent()) {
+				getDriver().get(Email_Test.testUserSignInMail(mail));
+				i++;
+				if (i == 5) {
+					break;
 				}
-				inbox = nadaMailService.getInboxByEMail(mail);
-				i--;
 			}
-			EmailMessage mailMessage = nadaMailService.getMessageWithSubjectContainsWith(inbox,
-					TestConstant.MAIL_USER_SIGNIN_SUBJECT_STRING);
-			String html = mailMessage.getHtml();
-			Pattern p = Pattern.compile("<a href='(.*)'>Sign in to LyveBee Inc");
-			Matcher m = p.matcher(html);
-
-			String finalvalue = null;
-			while (m.find()) {
-				finalvalue = m.group(1);
-			}
-			finalvalue = URLDecoder.decode(finalvalue, "UTF-18");
-			finalvalue = finalvalue.replace("&amp;", "&");
-			getLogger().info("Link to Sign In: " + finalvalue);
-
-			getDriver().get(finalvalue);
-			instructorUserEmailListCreated.add(user);
-
-			instructorPhoneNumberValidationPage.validate();
+			mainPage.waitForPageLoadComplete();
+			mainPage.goToMyProfilePageFromHeader();
+			userProfilePage.validate();
 			log("INSTRUCTOR SIGNUP MAIL RECEIVED SUCCUESSFULLY");
 			log("INSTRUCTOR SIGNUP MAIL HAS THE LINK FOR LOGIN");
 			log("INSTRUCTOR SIGNUP SUCCESSFUL");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-			AssertJUnit.fail("Exception happened in testSignUpInvitationEmail::" + ExceptionUtils.getFullStackTrace(e));
-		}
-	}
-
-	@Test(description = "Verify SignUp Consumer")
-	public void testInstructorMobileOTP() {
-		try {
-			instructorPhoneNumberValidationPage
-					.enterMobileNumber(TestConstant.DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER);
-			instructorPhoneNumberValidationPage.clickVerify();
-
-			String otp = SMS_Test.testOTPForInstructor();
-			instructorPhoneNumberValidationPage.submitOTP(otp);
 		} catch (Exception e) {
 			e.printStackTrace();
 			AssertJUnit.fail("Exception happened in testSignUpInvitationEmail::" + ExceptionUtils.getFullStackTrace(e));
 		}
 	}
 
+//	@Test(description = "Verify SignUp Consumer")
+//	public void testInstructorMobileOTP() {
+//		try {
+//			instructorPhoneNumberValidationPage
+//					.enterMobileNumber(TestConstant.DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER);
+//			instructorPhoneNumberValidationPage.clickVerify();
+//
+//			String otp = SMS_Test.testOTPForInstructor();
+//			instructorPhoneNumberValidationPage.submitOTP(otp);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			AssertJUnit.fail("Exception happened in testSignUpInvitationEmail::" + ExceptionUtils.getFullStackTrace(e));
+//		}
+//	}
+
+	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testSignUpInvitationEmail" }, priority = 3)
+	public void testBecomeConsultant() {
+		try {
+			userProfilePage.clickBecomeConsultantButton();
+			instructorPartnerOnBoardigPage.completeOnBoarding();
+		} catch (Exception e) {
+			e.printStackTrace();
+			AssertJUnit.fail("Exception happened in testSignUpInvitationEmail::" + ExceptionUtils.getFullStackTrace(e));
+		}
+	}
 }

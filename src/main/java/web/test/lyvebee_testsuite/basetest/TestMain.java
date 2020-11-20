@@ -30,6 +30,7 @@ import web.test.pom.instructor.Instructor_AddNewSpeciality_Page;
 import web.test.pom.instructor.Instructor_AddPaymentMethod_Page;
 import web.test.pom.instructor.Instructor_CreateClass_Page;
 import web.test.pom.instructor.Instructor_DeleteAccountFromAPI_Page;
+import web.test.pom.instructor.Instructor_ParterOnBoarding_Page;
 import web.test.pom.instructor.Instructor_PhoneNumber_Validation_Page;
 import web.test.pom.instructor.Instructor_ViewMyClasses_Page;
 import web.test.pom.main.Main_Page;
@@ -82,8 +83,9 @@ public class TestMain extends AppTest {
 	public Instructor_AddPaymentMethod_Page instructorAddPaymentMethodPage;
 	public Instructor_AddNewSpeciality_Page instructorAddNewSpecialityPage;
 	public Instructor_DeleteAccountFromAPI_Page instructorDeleteAcccountFromAPI;
+	public Instructor_ParterOnBoarding_Page instructorPartnerOnBoardigPage;
 
-	@BeforeTest()
+	@BeforeTest
 	public void beforeTest() {
 		spark.config().enableTimeline(true);
 		spark.config().setDocumentTitle("LyveBee Test Report");
@@ -94,7 +96,7 @@ public class TestMain extends AppTest {
 		extent.setSystemInfo("Browser", "Chrome");
 	}
 
-	@BeforeClass(groups = { "smoke", "BVT", "regression" })
+	@BeforeClass
 	public void beforeClass() {
 		signUpPage = new SignUp_Page(getDriver());
 		signInPage = new SignIn_Page(getDriver());
@@ -112,6 +114,8 @@ public class TestMain extends AppTest {
 		instructorPhoneNumberValidationPage = new Instructor_PhoneNumber_Validation_Page(getDriver());
 		instructorAddPaymentMethodPage = new Instructor_AddPaymentMethod_Page(getDriver());
 		instructorAddNewSpecialityPage = new Instructor_AddNewSpeciality_Page(getDriver());
+		instructorDeleteAcccountFromAPI = new Instructor_DeleteAccountFromAPI_Page(getDriver());
+		instructorPartnerOnBoardigPage = new Instructor_ParterOnBoarding_Page(getDriver());
 	}
 
 	public void loadSearchClassPage() {
@@ -176,7 +180,7 @@ public class TestMain extends AppTest {
 	public UserPOJO getAutoInstructorUser() {
 		UserPOJO user = new UserPOJO();
 		user.setUserName("AutoName");
-		user.setUserEmail("iauto" + CommonUtils.getCurrentTimeString() + NadaEMailService.NADA_EMAIL_DOMAIN);
+		user.setUserEmail("synibular@dropjar.com");
 		return user;
 	}
 
