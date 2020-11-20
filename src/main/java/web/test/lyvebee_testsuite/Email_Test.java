@@ -65,10 +65,12 @@ public class Email_Test extends TestMain {
 		String html = mailMessage.getHtml();
 		if (!html.contains("LyveBee client " + user.getUserName() + " has enrolled")) {
 			log("User " + user.getUserName() + " Not present in the mail");
+			log("Mail html");
 			return false;
 		}
 		if (!html.contains(classPojo.getClassName())) {
 			log("Class " + classPojo.getClassName() + "Not present in the mail");
+			log("Mail html");
 			return false;
 		}
 		if (!html.contains("CHAT WITH PARTICIPANT")) {

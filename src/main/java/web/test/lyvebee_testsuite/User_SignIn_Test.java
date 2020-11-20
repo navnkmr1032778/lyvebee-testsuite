@@ -26,7 +26,7 @@ public class User_SignIn_Test extends TestMain {
 			}
 
 			mail = user.getUserEmail();
-			log("USER CUSTOMER SIGN IN MAIL::" + user.getUserEmail());
+			log("USER CUSTOMER SIGN IN MAIL::" + user.getUserEmail() + " USER NAME::" + user.getUserName());
 			signInPage.signInUsingEmail(mail);
 			log("SIGN IN USING MAIL IS ACCEPTED AND MAIL SENT FOR LOGIIN.");
 		} catch (Exception e) {
