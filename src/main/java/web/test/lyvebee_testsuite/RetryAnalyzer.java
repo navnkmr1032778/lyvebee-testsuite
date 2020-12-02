@@ -26,6 +26,7 @@ public class RetryAnalyzer implements IRetryAnalyzer {
 
 		if (counter < retryLimit) {
 			counter++;
+			System.out.println("RETRYINNG TEST CASE FOR COUNTER::" + counter);
 			return true;
 		}
 		return false;
