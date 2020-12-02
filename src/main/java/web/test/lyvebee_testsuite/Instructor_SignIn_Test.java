@@ -29,7 +29,7 @@ public class Instructor_SignIn_Test extends TestMain {
 	}
 
 	@Test(description = "Verify SignIn email message for Instructor", dependsOnMethods = {
-			"testSignInInstructor" }, priority = 1)
+			"testSignInInstructor" }, priority = 1, retryAnalyzer = RetryAnalyzer.class)
 	public void testSignInInvitationEmailInstructor() throws UnsupportedEncodingException {
 		try {
 			String mail = user.getUserEmail();
