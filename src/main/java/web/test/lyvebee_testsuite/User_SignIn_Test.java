@@ -36,7 +36,7 @@ public class User_SignIn_Test extends TestMain {
 	}
 
 	@Test(description = "Verify SignIn email message for Customer", dependsOnMethods = {
-			"testSignInConsumer" }, priority = 1, retryAnalyzer = RetryAnalyzer.class)
+			"testSignInConsumer" }, priority = 1)
 	public void testSignInInvitationEmailConsumer() throws UnsupportedEncodingException {
 		try {
 			System.out.println(mail);
