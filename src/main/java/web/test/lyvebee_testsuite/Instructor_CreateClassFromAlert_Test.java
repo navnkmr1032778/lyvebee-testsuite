@@ -11,7 +11,7 @@ import web.test.lyvebee_testsuite.contants.TestConstant;
 public class Instructor_CreateClassFromAlert_Test extends Instructor_SignUp_Test {
 
 	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testBecomeConsultant" }, priority = 4)
-	public void testCreateFirstClass() {
+	public void testCreateFirstClassFromAlert() {
 		try {
 			ClassPOJO classPojo = getClassPojo();
 			instructorPartnerOnBoardigPage.doCreateClassLater();
@@ -27,7 +27,7 @@ public class Instructor_CreateClassFromAlert_Test extends Instructor_SignUp_Test
 	}
 
 	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testCreateFirstClass" }, priority = 5)
-	public void testLyveBeeAccountFromCreateClassPage() {
+	public void testLyveBeeAccountFromAlerts() {
 		try {
 			mainPage.goToMyProfilePageFromMobileView();
 			userProfilePage.goToCalendarPermissionPageFromAlert();

@@ -11,7 +11,7 @@ import web.test.lyvebee_testsuite.contants.TestConstant;
 public class Instructor_CreateClassFromCongrats_Test extends Instructor_SignUp_Test {
 
 	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testBecomeConsultant" }, priority = 4)
-	public void testCreateFirstClass() {
+	public void testCreateFirstClassFromCongrats() {
 		try {
 			ClassPOJO classPojo = getClassPojo();
 			instructorPartnerOnBoardigPage.createFirstClass();
