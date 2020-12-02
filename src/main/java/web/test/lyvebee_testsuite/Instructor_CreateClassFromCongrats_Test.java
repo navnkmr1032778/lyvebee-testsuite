@@ -25,7 +25,8 @@ public class Instructor_CreateClassFromCongrats_Test extends Instructor_SignUp_T
 		}
 	}
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testCreateFirstClass" }, priority = 5)
+	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = {
+			"testCreateFirstClassFromCongrats" }, priority = 5)
 	public void testLyveBeeAccountFromCreateClassPage() {
 		try {
 			instructorCreateClassesPage.createLyveBeeVideoAccount();

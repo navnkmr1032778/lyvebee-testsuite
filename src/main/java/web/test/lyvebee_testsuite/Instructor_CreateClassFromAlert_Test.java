@@ -26,7 +26,8 @@ public class Instructor_CreateClassFromAlert_Test extends Instructor_SignUp_Test
 		}
 	}
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testCreateFirstClass" }, priority = 5)
+	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = {
+			"testCreateFirstClassFromAlert" }, priority = 5)
 	public void testLyveBeeAccountFromAlerts() {
 		try {
 			mainPage.goToMyProfilePageFromMobileView();
