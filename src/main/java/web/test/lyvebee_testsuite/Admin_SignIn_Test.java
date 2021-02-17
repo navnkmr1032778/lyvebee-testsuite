@@ -9,28 +9,27 @@ import org.testng.annotations.Test;
 import web.test.lyvebee.POJO.UserPOJO;
 import web.test.lyvebee_testsuite.basetest.TestMain;
 
-public class Instructor_SignIn_Test extends TestMain {
+public class Admin_SignIn_Test extends TestMain {
 
 	UserPOJO user;
 
 	@Test(description = "Verify SignIn Instructor using mail id", priority = 0)
-	public void testSignInInstructor() {
+	public void testSignInAdmin() {
 		try {
-			loadWhiteLabelMainPage();
+			loadMainPage();
 			mainPage.goToSignInPageFromHeader();
-			user = instructorUserEmailListCreated.get(0);
-			log("USER INSTRUCTOR SIGN IN MAIL::" + user.getUserEmail());
+			user = adminUser.get(0);
+			log("USER ADMIN SIGN IN MAIL::" + user.getUserEmail());
 			signInPage.signInUsingEmail(user.getUserEmail());
 			log("SIGN IN USING MAIL IS ACCEPTED AND MAIL SENT FOR LOGIIN.");
 		} catch (Exception e) {
 			e.printStackTrace();
-			AssertJUnit.fail("Exception happened in testSignInInstructor::" + ExceptionUtils.getFullStackTrace(e));
+			AssertJUnit.fail("Exception happened in testSignInAdmin::" + ExceptionUtils.getFullStackTrace(e));
 		}
 	}
 
-	@Test(description = "Verify SignIn email message for Instructor", dependsOnMethods = {
-			"testSignInInstructor" }, priority = 1)
-	public void testSignInInvitationEmailInstructor() throws UnsupportedEncodingException {
+	@Test(description = "Verify SignIn email message for ADMIN", dependsOnMethods = { "testSignInAdmin" }, priority = 1)
+	public void testSignInInvitationEmailAdmin() throws UnsupportedEncodingException {
 		try {
 			String mail = user.getUserEmail();
 			System.out.println(mail);
@@ -46,11 +45,11 @@ public class Instructor_SignIn_Test extends TestMain {
 			mainPage.waitForPageLoadComplete();
 //			userProfilePage.validate();
 			log("LOGIN MAIL RECEIVED SUCCESSFULLY AND LINK PRESENT FOR LOGIN.");
-			log("USER INSTRUCTOR SUCCESSFULLY LOGGED IN.");
+			log("USER ADMIN SUCCESSFULLY LOGGED IN.");
 		} catch (Exception e) {
 			e.printStackTrace();
-			AssertJUnit.fail("Exception happened in testSignInInvitationEmailInstructor::"
-					+ ExceptionUtils.getFullStackTrace(e));
+			AssertJUnit.fail(
+					"Exception happened in testSignInInvitationEmailAdmin::" + ExceptionUtils.getFullStackTrace(e));
 		}
 
 	}

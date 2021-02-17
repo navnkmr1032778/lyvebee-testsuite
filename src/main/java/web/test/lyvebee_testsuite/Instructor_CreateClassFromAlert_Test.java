@@ -8,13 +8,15 @@ import org.testng.annotations.Test;
 import web.test.lyvebee.POJO.ClassPOJO;
 import web.test.lyvebee_testsuite.contants.TestConstant;
 
-public class Instructor_CreateClassFromAlert_Test extends Instructor_SignUp_Test {
+public class Instructor_CreateClassFromAlert_Test extends Instructor_SignIn_Test {
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testBecomeConsultant" }, priority = 4)
+	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = {
+			"testSignInInvitationEmailInstructor" }, priority = 4)
 	public void testCreateFirstClassFromAlert() {
 		try {
 			ClassPOJO classPojo = getClassPojo();
-			instructorPartnerOnBoardigPage.doCreateClassLater();
+			mainPage.goToMyProfilePageFromMobileView();
+//			instructorPartnerOnBoardigPage.doCreateClassLater();
 			userProfilePage.goToCreateClassPageFromAlert();
 			instructorCreateClassesPage.createClass(classPojo,
 					utils.getCurrentWorkingDirectory() + TestConstant.FILE_PATH);

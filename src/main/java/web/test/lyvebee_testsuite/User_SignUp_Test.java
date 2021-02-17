@@ -26,7 +26,7 @@ public class User_SignUp_Test extends TestMain {
 	@Test(description = "Verify SignUp Consumer")
 	public void testSignUpPage() {
 		try {
-			loadMainPage();
+			loadWhiteLabelMainPage();
 			mainPage.goToSignUpPageFromHeader();
 			user = getAutoConsumerUser();
 			log("CUSOTMER SIGNUP MAIL::" + user.getUserEmail());
@@ -64,7 +64,7 @@ public class User_SignUp_Test extends TestMain {
 			while (m.find()) {
 				finalvalue = m.group(1);
 			}
-			finalvalue = URLDecoder.decode(finalvalue, "UTF-18");
+			finalvalue = URLDecoder.decode(finalvalue, "UTF-8");
 			finalvalue = finalvalue.replace("&amp;", "&");
 			getLogger().info("Link to Sign In: " + finalvalue);
 

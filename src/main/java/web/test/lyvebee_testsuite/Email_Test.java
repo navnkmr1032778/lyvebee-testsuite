@@ -104,7 +104,38 @@ public class Email_Test extends TestMain {
 		while (m.find()) {
 			finalvalue = m.group(1);
 		}
-		finalvalue = URLDecoder.decode(finalvalue, "UTF-18");
+		finalvalue = URLDecoder.decode(finalvalue, "UTF-8");
+		finalvalue = finalvalue.replace("&amp;", "&");
+		getLogger().info("Link to Sign In: " + finalvalue);
+		return finalvalue;
+	}
+
+	public static String testUserInvitationMail(String mail) throws Exception {
+		Thread.sleep(15000);
+		System.out.println(mail);
+		int i = 24;
+		List<InboxEmail> inbox = nadaMailService.getInboxByEMail(mail);
+		while (inbox.size() == 0 && i > 0) {
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			inbox = nadaMailService.getInboxByEMail(mail);
+			i--;
+		}
+		EmailMessage mailMessage = nadaMailService.getMessageWithSubjectContainsWith(inbox,
+				TestConstant.MAIL_USER_TEAMMEMBER_INVITATION_SUBJECT_STRING);
+		String html = mailMessage.getHtml();
+		Pattern p = Pattern.compile("<a(.*)href=\"(.*)\" target(.*)\">\\s(.*)ACCEPT AND JOIN THIS ACCOUNT",
+				Pattern.MULTILINE);
+		Matcher m = p.matcher(html);
+
+		String finalvalue = null;
+		while (m.find()) {
+			finalvalue = m.group(2);
+		}
+		finalvalue = URLDecoder.decode(finalvalue, "UTF-8");
 		finalvalue = finalvalue.replace("&amp;", "&");
 		getLogger().info("Link to Sign In: " + finalvalue);
 		return finalvalue;

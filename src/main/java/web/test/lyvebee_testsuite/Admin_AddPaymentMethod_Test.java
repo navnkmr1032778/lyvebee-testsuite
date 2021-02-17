@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import web.test.lyvebee.POJO.ClassPOJO;
 
-public class Instructor_AddPaymentMethod_Test extends Instructor_SignIn_Test {
+public class Admin_AddPaymentMethod_Test extends Admin_SignIn_Test {
 	ClassPOJO classPojo;
 
 	@Test(description = "Verify add payment method in Instructor profile", dependsOnMethods = {
-			"testSignInInvitationEmailInstructor" }, priority = 2)
+			"testSignInInvitationEmailAdmin" }, priority = 2)
 	public void testPaymentMethod() {
 		try {
 			userHomePage.goToMyProfilePageFromMobileView();

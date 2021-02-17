@@ -7,8 +7,6 @@ import org.testng.annotations.Test;
 
 import com.solutionstar.swaftee.utils.CommonUtils;
 
-import web.test.lyvebee_testsuite.contants.TestConstant;
-
 public class Instructor_Profile_Test extends Instructor_SignIn_Test {
 
 	@Test(description = "Verify reset password of Video account", dependsOnMethods = {
@@ -29,47 +27,47 @@ public class Instructor_Profile_Test extends Instructor_SignIn_Test {
 		}
 	}
 
-	@Test(description = "Verify reset password of Video account", priority = 3)
-	public void testAddSpecialityFeature() {
-		try {
-			loadMainPage();
-			mainPage.goToMyProfilePageFromHeader();
-			log("CUSTOMER VIEW MYPROFILE PAGE LOADED SUCCESSFUL");
-			userProfilePage.goToAddNewSpecialityPage();
-			String speciality = CommonUtils.getCurrentTimeString();
-			instructorAddNewSpecialityPage.addSpeciality(speciality);
-
-			if (!instructorAddNewSpecialityPage.isSpecialityAdded())
-				Assert.fail("Speciality not added successful");
-			log("SPECIALITY ADDED SUCCESSFUL");
-
-			String videoPath = "https://my.lyvebee.com/start-session/";
-			if (TestConstant.ENVIRONMENT.equalsIgnoreCase("stage"))
-				videoPath = "https://staging.lyvebee.com/start-session/";
-
-			if (!instructorAddNewSpecialityPage.isSpecialityVideoURLPresent(videoPath + speciality))
-				Assert.fail("Speciality Video URL is present");
-
-			log("SPECIALITY VIDEO URL IS PRESENT");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			AssertJUnit.fail("Exception happened in testSignInInstructor::" + ExceptionUtils.getFullStackTrace(e));
-		}
-	}
-
-	@Test(description = "Verify reset password of Video account", dependsOnMethods = {
-			"testAddSpecialityFeature" }, priority = 4)
-	public void testRemoveSpecialityFeature() {
-		try {
-			instructorAddNewSpecialityPage.deleteSpeciality();
-			if (!instructorAddNewSpecialityPage.isSpecialityRemovedSuccessfully())
-				Assert.fail("Speciality not added successful");
-			log("SPECIALITY DELETE SUCCESSFUL");
-		} catch (Exception e) {
-			e.printStackTrace();
-			AssertJUnit.fail("Exception happened in testSignInInstructor::" + ExceptionUtils.getFullStackTrace(e));
-		}
-	}
+//	@Test(description = "Verify reset password of Video account", priority = 3)
+//	public void testAddSpecialityFeature() {
+//		try {
+//			loadMainPage();
+//			mainPage.goToMyProfilePageFromHeader();
+//			log("CUSTOMER VIEW MYPROFILE PAGE LOADED SUCCESSFUL");
+//			userProfilePage.goToAddNewSpecialityPage();
+//			String speciality = CommonUtils.getCurrentTimeString();
+//			instructorAddNewSpecialityPage.addSpeciality(speciality);
+//
+//			if (!instructorAddNewSpecialityPage.isSpecialityAdded())
+//				Assert.fail("Speciality not added successful");
+//			log("SPECIALITY ADDED SUCCESSFUL");
+//
+//			String videoPath = "https://my.lyvebee.com/start-session/";
+//			if (TestConstant.ENVIRONMENT.equalsIgnoreCase("stage"))
+//				videoPath = "https://staging.lyvebee.com/start-session/";
+//
+//			if (!instructorAddNewSpecialityPage.isSpecialityVideoURLPresent(videoPath + speciality))
+//				Assert.fail("Speciality Video URL is present");
+//
+//			log("SPECIALITY VIDEO URL IS PRESENT");
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			AssertJUnit.fail("Exception happened in testSignInInstructor::" + ExceptionUtils.getFullStackTrace(e));
+//		}
+//	}
+//
+//	@Test(description = "Verify reset password of Video account", dependsOnMethods = {
+//			"testAddSpecialityFeature" }, priority = 4)
+//	public void testRemoveSpecialityFeature() {
+//		try {
+//			instructorAddNewSpecialityPage.deleteSpeciality();
+//			if (!instructorAddNewSpecialityPage.isSpecialityRemovedSuccessfully())
+//				Assert.fail("Speciality not added successful");
+//			log("SPECIALITY DELETE SUCCESSFUL");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			AssertJUnit.fail("Exception happened in testSignInInstructor::" + ExceptionUtils.getFullStackTrace(e));
+//		}
+//	}
 
 }

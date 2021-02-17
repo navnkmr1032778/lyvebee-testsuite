@@ -26,6 +26,7 @@ import com.solutionstar.swaftee.webdriverbase.AppTest;
 import web.test.lyvebee.POJO.ClassPOJO;
 import web.test.lyvebee.POJO.UserPOJO;
 import web.test.lyvebee_testsuite.contants.TestConstant;
+import web.test.pom.instructor.Admin_InviteMyTeamMembers_Page;
 import web.test.pom.instructor.Instructor_AddNewSpeciality_Page;
 import web.test.pom.instructor.Instructor_AddPaymentMethod_Page;
 import web.test.pom.instructor.Instructor_CreateClass_Page;
@@ -33,6 +34,7 @@ import web.test.pom.instructor.Instructor_DeleteAccountFromAPI_Page;
 import web.test.pom.instructor.Instructor_ParterOnBoarding_Page;
 import web.test.pom.instructor.Instructor_PhoneNumber_Validation_Page;
 import web.test.pom.instructor.Instructor_ViewMyClasses_Page;
+import web.test.pom.main.Admin_Landing_Page;
 import web.test.pom.main.Main_Page;
 import web.test.pom.main.SignIn_Page;
 import web.test.pom.main.SignUp_Page;
@@ -53,12 +55,16 @@ public class TestMain extends AppTest {
 	public static NadaEMailService nadaMailService = new NadaEMailService();
 
 	// Data
+	public static String teamMemberInvitationSignUpLink = "";
 	public static List<ClassPOJO> classListCreated = new ArrayList<ClassPOJO>();
 	public static List<ClassPOJO> bookedClassListByCustomer = new ArrayList<ClassPOJO>();
 	public static List<ClassPOJO> bookedAndCancelledClassListByCustomer = new ArrayList<ClassPOJO>();
 	public static List<UserPOJO> userEmailListCreated = new ArrayList<UserPOJO>();
 	public static List<UserPOJO> instructorUserEmailListCreated = new ArrayList<UserPOJO>();
 	public static List<UserPOJO> userSessionURL = new ArrayList<UserPOJO>();
+	public static List<UserPOJO> invitedUsers = new ArrayList<UserPOJO>();
+	public static List<UserPOJO> adminUser = new ArrayList<UserPOJO>();
+
 	public static ClassPOJO timeZoneClass;
 	// Main Pages
 	public Main_Page mainPage;
@@ -84,6 +90,10 @@ public class TestMain extends AppTest {
 	public Instructor_AddNewSpeciality_Page instructorAddNewSpecialityPage;
 	public Instructor_DeleteAccountFromAPI_Page instructorDeleteAcccountFromAPI;
 	public Instructor_ParterOnBoarding_Page instructorPartnerOnBoardigPage;
+	public Admin_Landing_Page adminLandingPage;
+
+	// Admin Pages
+	public Admin_InviteMyTeamMembers_Page adminInviteTeamMembersPage;
 
 	@BeforeTest
 	public void beforeTest() {
@@ -116,6 +126,9 @@ public class TestMain extends AppTest {
 		instructorAddNewSpecialityPage = new Instructor_AddNewSpeciality_Page(getDriver());
 		instructorDeleteAcccountFromAPI = new Instructor_DeleteAccountFromAPI_Page(getDriver());
 		instructorPartnerOnBoardigPage = new Instructor_ParterOnBoarding_Page(getDriver());
+		adminLandingPage = new Admin_Landing_Page(getDriver());
+
+		adminInviteTeamMembersPage = new Admin_InviteMyTeamMembers_Page(getDriver());
 	}
 
 	public void loadSearchClassPage() {
@@ -128,6 +141,17 @@ public class TestMain extends AppTest {
 		}
 		if (!hasDriver() || mainPage == null) {
 			getDriver().get(TestConstant.LYVEBEE_BASE_PAGE_URL);
+			mainPage = new Main_Page(getDriver());
+		}
+		getDriver().manage().window().maximize();
+	}
+
+	public void loadWhiteLabelMainPage() {
+		if (hasDriver() && mainPage != null) {
+			mainPage = mainPage.loadMainPage(TestConstant.WHITELABEL_BASE_PAGE_URL_CURRENT);
+		}
+		if (!hasDriver() || mainPage == null) {
+			getDriver().get(TestConstant.WHITELABEL_BASE_PAGE_URL_CURRENT);
 			mainPage = new Main_Page(getDriver());
 		}
 		getDriver().manage().window().maximize();
@@ -163,6 +187,19 @@ public class TestMain extends AppTest {
 		return classPojo;
 	}
 
+	public UserPOJO getAutoAdminUser() {
+		UserPOJO user = new UserPOJO();
+		user.setUserName("TestAdminName");
+		user.setUserEmail("test" + CommonUtils.getCurrentTimeString() + NadaEMailService.NADA_EMAIL_DOMAIN);
+		return user;
+	}
+
+	public UserPOJO getCurrentAdminUser() {
+		UserPOJO user = new UserPOJO();
+		user.setUserEmail(TestConstant.ADMIN_MAIL_CURRENT);
+		return user;
+	}
+
 	public UserPOJO getDefaultInstructorUser() {
 		UserPOJO user = new UserPOJO();
 		user.setUserEmail(TestConstant.DEFAULT_INSTRUCTOR_USER_USERNAME);
@@ -180,7 +217,8 @@ public class TestMain extends AppTest {
 	public UserPOJO getAutoInstructorUser() {
 		UserPOJO user = new UserPOJO();
 		user.setUserName("AutoName");
-		user.setUserEmail("synibular@dropjar.com");
+//		user.setUserEmail(TestConstant.DEFAULT_INSTRUCTOR_SIGNUP_USER_USERNAME);
+		user.setUserEmail("test" + CommonUtils.getCurrentTimeString() + NadaEMailService.NADA_EMAIL_DOMAIN);
 		return user;
 	}
 
@@ -194,7 +232,7 @@ public class TestMain extends AppTest {
 	public UserPOJO getAutoConsumerUser() {
 		UserPOJO user = new UserPOJO();
 		user.setUserName("AutoName");
-		user.setUserEmail("auto" + CommonUtils.getCurrentTimeString() + NadaEMailService.NADA_EMAIL_DOMAIN);
+		user.setUserEmail("test" + CommonUtils.getCurrentTimeString() + NadaEMailService.NADA_EMAIL_DOMAIN);
 		return user;
 	}
 

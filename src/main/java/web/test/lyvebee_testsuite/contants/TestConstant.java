@@ -2,9 +2,14 @@ package web.test.lyvebee_testsuite.contants;
 
 public class TestConstant {
 	public static String LYVEBEE_BASE_PAGE_URL = "https://staging-ssr.lyvebee.com/";
+//	public static String LYVEBEE_BASE_PAGE_URL = "https://tesyznmtfcktl.lyvebee.com/";
+
 	public static String CLASSPAGE_URL = "https://www.lyvebee.com/classes";
+	public static String WHITELABEL_BASE_PAGE_URL_CURRENT = "https://tesyznmtfcktl.my.lyvebee.com/";
+	public static String ADMIN_MAIL_CURRENT = "test20210216012400@clrmail.com";
 
 	// Mail Subject
+	public static final String MAIL_USER_TEAMMEMBER_INVITATION_SUBJECT_STRING = "Invitation to join";
 	public static final String MAIL_USER_SIGNIN_SUBJECT_STRING = "Sign in to LyveBee Inc";
 	public static final String MAIL_USER_ENROLL_SUBJECT_STRING = "Thank you for enrolling for a class!";
 	public static final String MAIL_INSTRUCTOR_ENROLL_SUBJECT_STRING = "Congrats! A participant just enrolled in your class!";
@@ -22,9 +27,11 @@ public class TestConstant {
 	public static final String LINKEDIN_PASSWORD = "Password@123";
 
 	public static String DEFAULT_CUSTOMER_USER_EMAIL = "automail20201017180010@clrmail.com";
-	public static String DEFAULT_INSTRUCTOR_USER_USERNAME = "heputid@getnada.com";
-	public static String DEFAULT_INSTRUCTOR_SIGNUP_USER_USERNAME = "zetyoc@getnada.com";
-	public static String DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER = "+12058812777";
+//	public static String DEFAULT_INSTRUCTOR_USER_USERNAME = "zetyoc@getnada.com";
+	public static String DEFAULT_INSTRUCTOR_USER_USERNAME = "test20210216012400@clrmail.com";
+
+	public static String DEFAULT_INSTRUCTOR_SIGNUP_USER_USERNAME = "jebec@dropjar.com";
+	public static String DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER = "2058812777";
 	public static final String ENVIRONMENT = System.getProperty("testenv", "stage");
 
 	// Time Zone
@@ -53,8 +60,6 @@ public class TestConstant {
 			CLASSPAGE_URL = "https://staging-ssr.lyvebee.com/classes";
 		} else if (ENVIRONMENT.equals("prod")) {
 			LYVEBEE_BASE_PAGE_URL = "https://www.lyvebee.com/";
-			DEFAULT_CUSTOMER_USER_EMAIL = "ripipe@getnada.com";
-			DEFAULT_INSTRUCTOR_USER_USERNAME = "xidyw@getnada.com";
 		}
 	}
 }

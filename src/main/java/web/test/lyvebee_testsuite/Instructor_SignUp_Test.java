@@ -1,13 +1,11 @@
 package web.test.lyvebee_testsuite;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import web.test.lyvebee.POJO.UserPOJO;
 import web.test.lyvebee_testsuite.basetest.TestMain;
-import web.test.lyvebee_testsuite.contants.TestConstant;
 
 public class Instructor_SignUp_Test extends TestMain {
 
@@ -15,39 +13,26 @@ public class Instructor_SignUp_Test extends TestMain {
 	UserPOJO user;
 
 	@Test(description = "Verify Instructor account deletion", priority = 0)
-	public void testDeleteAccountFromApi() {
+	public void testAcceptInvitation() {
 		try {
-			user = getAutoInstructorUser();
-			loadDeleteAccountFromAPIMainPage();
-			if (!instructorDeleteAcccountFromAPI
-					.deleteInstructorAccount(TestConstant.DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER))
-				Assert.fail("INSTRUCTOR ACCOUNT FAILED TO DELETE");
-		} catch (Exception e) {
-			e.printStackTrace();
-			AssertJUnit.fail("Exception happened in testSignUpPage::" + ExceptionUtils.getFullStackTrace(e));
-		}
-	}
-
-	@Test(description = "Verify SignUp Consumer", dependsOnMethods = { "testDeleteAccountFromApi" }, priority = 1)
-	public void testSignUpPage() {
-		try {
+			user = invitedUsers.get(0);
 			loadMainPage();
-			mainPage.goToSignUpPageFromHeader();
-			log("INSTRUCTOR SIGNUP MAIL::" + user.getUserEmail());
-			signUpPage.signUpUsingEmail(user.getUserName(), user.getUserEmail());
-			log("INSTRUCTOR SIGNUP MAIL SENT SUCCUESSFULLY" + user.getUserEmail());
+			mainPage.get(teamMemberInvitationSignUpLink);
+			signUpPage.signUpThroughInvitation("Instructor1", null);
 		} catch (Exception e) {
 			e.printStackTrace();
 			AssertJUnit.fail("Exception happened in testSignUpPage::" + ExceptionUtils.getFullStackTrace(e));
 		}
 	}
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testSignUpPage" }, priority = 2)
-	public void testSignUpInvitationEmail() {
+	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testAcceptInvitation" }, priority = 1)
+	public void testSignUpMailFromInvitation() {
 		try {
 			String mail = user.getUserEmail();
 			System.out.println(mail);
-			getDriver().get(Email_Test.testUserSignInMail(mail));
+			mainPage.get(Email_Test.testUserSignInMail(mail));
+			mainPage.sleep(8000);
+			mainPage.waitForPageLoadComplete();
 			int i = 0;
 			while (mainPage.isInvalidCodePresent()) {
 				getDriver().get(Email_Test.testUserSignInMail(mail));
@@ -56,19 +41,63 @@ public class Instructor_SignUp_Test extends TestMain {
 					break;
 				}
 			}
-			mainPage.waitForPageLoadComplete();
-			mainPage.goToMyProfilePageFromHeader();
-			userProfilePage.validate();
-			log("INSTRUCTOR SIGNUP MAIL RECEIVED SUCCUESSFULLY");
-			log("INSTRUCTOR SIGNUP MAIL HAS THE LINK FOR LOGIN");
-			log("INSTRUCTOR SIGNUP SUCCESSFUL");
+			instructorUserEmailListCreated.add(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 			AssertJUnit.fail("Exception happened in testSignUpInvitationEmail::" + ExceptionUtils.getFullStackTrace(e));
 		}
 	}
 
-//	@Test(description = "Verify SignUp Consumer")
+//	@Test(description = "Verify Instructor account deletion", priority = 0)
+//	public void testDeleteAccountFromApi() {
+//		try {
+//			user = getAutoInstructorUser();
+//			loadDeleteAccountFromAPIMainPage();
+//			if (!instructorDeleteAcccountFromAPI
+//					.deleteInstructorAccount(TestConstant.DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER))
+//				Assert.fail("INSTRUCTOR ACCOUNT FAILED TO DELETE");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			AssertJUnit.fail("Exception happened in testSignUpPage::" + ExceptionUtils.getFullStackTrace(e));
+//		}
+//	}
+//
+//	@Test(description = "Verify SignUp Consumer", dependsOnMethods = { "testDeleteAccountFromApi" }, priority = 1)
+//	public void testSignUpPage() {
+//		try {
+//			loadMainPage();
+//			mainPage.goToSignUpPageFromHeader();
+//			log("INSTRUCTOR SIGNUP MAIL::" + user.getUserEmail());
+//			signUpPage.signUpUsingEmail(user.getUserName(), user.getUserEmail());
+//			log("INSTRUCTOR SIGNUP MAIL SENT SUCCUESSFULLY" + user.getUserEmail());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			AssertJUnit.fail("Exception happened in testSignUpPage::" + ExceptionUtils.getFullStackTrace(e));
+//		}
+//	}
+//
+//	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testSignUpPage" }, priority = 2)
+//	public void testSignUpInvitationEmail() {
+//		try {
+//			String mail = user.getUserEmail();
+//			System.out.println(mail);
+//			getDriver().get(Email_Test.testUserSignInMail(mail));
+//			int i = 0;
+//			while (mainPage.isInvalidCodePresent()) {
+//				getDriver().get(Email_Test.testUserSignInMail(mail));
+//				i++;
+//				if (i == 5) {
+//					break;
+//				}
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			AssertJUnit.fail("Exception happened in testSignUpInvitationEmail::" + ExceptionUtils.getFullStackTrace(e));
+//		}
+//	}
+
+//	@Test(description = "Check Landing Page Configuration", dependsOnMethods = {
+//			"testSignUpInvitationEmail" }, priority = 3)
 //	public void testInstructorMobileOTP() {
 //		try {
 //			instructorPhoneNumberValidationPage
@@ -83,14 +112,31 @@ public class Instructor_SignUp_Test extends TestMain {
 //		}
 //	}
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testSignUpInvitationEmail" }, priority = 3)
-	public void testBecomeConsultant() {
-		try {
-			userProfilePage.clickBecomeConsultantButton();
-			instructorPartnerOnBoardigPage.completeOnBoarding();
-		} catch (Exception e) {
-			e.printStackTrace();
-			AssertJUnit.fail("Exception happened in testSignUpInvitationEmail::" + ExceptionUtils.getFullStackTrace(e));
-		}
-	}
+//	@Test(description = "Check Landing Page Configuration", dependsOnMethods = {
+//			"testSignUpInvitationEmail" }, priority = 4)
+//	public void testCompleteLandingPage() {
+//		try {
+//			adminLandingPage.completeFirstStep();
+//			adminLandingPage.completeSecondStep("testauto-" + CommonUtils.getCurrentTimeString());
+//			adminLandingPage.completeThirdStep();
+//			adminLandingPage.completeFourthStep();
+//			adminLandingPage.completeFifthStep();
+//			adminLandingPage.completeSixthStep();
+//
+//			adminLandingPage.completeHeaderTab();
+//			adminLandingPage.completeSocialTab();
+//			adminLandingPage.completeContactInfoTab();
+//			mainPage.waitForPageLoadComplete();
+//			mainPage.goToMyProfilePageFromHeader();
+//			userProfilePage.validate();
+//			log("INSTRUCTOR SIGNUP MAIL RECEIVED SUCCUESSFULLY");
+//			log("INSTRUCTOR SIGNUP MAIL HAS THE LINK FOR LOGIN");
+//			log("INSTRUCTOR SIGNUP SUCCESSFUL");
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			AssertJUnit.fail("Exception happened in testSignUpInvitationEmail::" + ExceptionUtils.getFullStackTrace(e));
+//		}
+//	}
+
 }
