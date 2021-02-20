@@ -19,7 +19,7 @@ public class Instructor_SignIn_Test extends TestMain {
 			loadWhiteLabelMainPage();
 			mainPage.goToSignInPageFromHeader();
 //			user = instructorUserEmailListCreated.get(0);
-			user = getDefaultInstructorUser();
+			user = getDefaultAdminUser();
 			log("USER INSTRUCTOR SIGN IN MAIL::" + user.getUserEmail());
 			signInPage.signInUsingEmail(user.getUserEmail());
 			log("SIGN IN USING MAIL IS ACCEPTED AND MAIL SENT FOR LOGIIN.");
