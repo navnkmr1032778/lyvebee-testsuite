@@ -17,7 +17,7 @@ public class Admin_InviteMyTeamMembers_Test extends Admin_SignIn_Test {
 			"testSignInInvitationEmailAdmin" }, priority = 2)
 	public void testSendTeamMemberInvitation() {
 		try {
-			user = getAutoInstructorUser();
+			user = getDefaultInstructorUser();
 			userHomePage.goToMyProfilePageFromMobileView();
 			userProfilePage.goToInviteTeamMemberPage();
 

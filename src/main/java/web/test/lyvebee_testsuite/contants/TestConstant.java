@@ -26,9 +26,10 @@ public class TestConstant {
 	public static final String LINKEDIN_USERNAME = "navnkmr08@gmail.com";
 	public static final String LINKEDIN_PASSWORD = "Password@123";
 
-	public static String DEFAULT_CUSTOMER_USER_EMAIL = "automail20201017180010@clrmail.com";
+	public static String DEFAULT_CUSTOMER_USER_EMAIL = "lyvbeeauto3@clrmail.com";
 //	public static String DEFAULT_INSTRUCTOR_USER_USERNAME = "zetyoc@getnada.com";
-	public static String DEFAULT_INSTRUCTOR_USER_USERNAME = "test20210216012400@clrmail.com";
+	public static String DEFAULT_INSTRUCTOR_USER_USERNAME = "lyvbeeauto2@clrmail.com";
+	public static String DEFAULT_ADMIN_USER_USERNAME = "lyvbeeauto1@clrmail.com";
 
 	public static String DEFAULT_INSTRUCTOR_SIGNUP_USER_USERNAME = "jebec@dropjar.com";
 	public static String DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER = "2058812777";

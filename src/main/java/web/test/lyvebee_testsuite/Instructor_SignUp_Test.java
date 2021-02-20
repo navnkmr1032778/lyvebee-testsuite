@@ -12,10 +12,11 @@ public class Instructor_SignUp_Test extends TestMain {
 	int invalidImageCount = 0;
 	UserPOJO user;
 
-	@Test(description = "Verify Instructor account deletion", priority = 0)
+	@Test(description = "Verify Instructor account deletion", priority = 1)
 	public void testAcceptInvitation() {
 		try {
-			user = invitedUsers.get(0);
+//			user = invitedUsers.get(0);
+			user = getDefaultInstructorUser();
 			loadMainPage();
 			mainPage.get(teamMemberInvitationSignUpLink);
 			signUpPage.signUpThroughInvitation("Instructor1", null);
@@ -25,7 +26,7 @@ public class Instructor_SignUp_Test extends TestMain {
 		}
 	}
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testAcceptInvitation" }, priority = 1)
+	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testAcceptInvitation" }, priority = 2)
 	public void testSignUpMailFromInvitation() {
 		try {
 			String mail = user.getUserEmail();
@@ -48,20 +49,6 @@ public class Instructor_SignUp_Test extends TestMain {
 		}
 	}
 
-//	@Test(description = "Verify Instructor account deletion", priority = 0)
-//	public void testDeleteAccountFromApi() {
-//		try {
-//			user = getAutoInstructorUser();
-//			loadDeleteAccountFromAPIMainPage();
-//			if (!instructorDeleteAcccountFromAPI
-//					.deleteInstructorAccount(TestConstant.DEFAULT_INSTRUCTOR_SIGNUP_USER_PHONENUMBER))
-//				Assert.fail("INSTRUCTOR ACCOUNT FAILED TO DELETE");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			AssertJUnit.fail("Exception happened in testSignUpPage::" + ExceptionUtils.getFullStackTrace(e));
-//		}
-//	}
-//
 //	@Test(description = "Verify SignUp Consumer", dependsOnMethods = { "testDeleteAccountFromApi" }, priority = 1)
 //	public void testSignUpPage() {
 //		try {

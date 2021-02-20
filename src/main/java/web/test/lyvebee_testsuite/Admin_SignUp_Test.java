@@ -2,6 +2,7 @@ package web.test.lyvebee_testsuite;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
@@ -13,10 +14,25 @@ public class Admin_SignUp_Test extends TestMain {
 
 	UserPOJO user;
 
-	@Test(description = "Verify Account Signup", priority = 0)
+	@Test(description = "Verify Instructor account deletion", priority = 0)
+	public void testDeleteAccountFromApi() {
+		try {
+			loadDeleteAccountFromAPIMainPage();
+			if (!instructorDeleteAcccountFromAPI.deleteInstructorAccount(TestConstant.DEFAULT_ADMIN_USER_USERNAME))
+				Assert.fail("ADMIN ACCOUNT FAILED TO DELETE");
+			loadDeleteAccountFromAPIMainPage();
+			if (!instructorDeleteAcccountFromAPI.deleteInstructorAccount(TestConstant.DEFAULT_INSTRUCTOR_USER_USERNAME))
+				Assert.fail("INSTRUCTOR ACCOUNT FAILED TO DELETE");
+		} catch (Exception e) {
+			e.printStackTrace();
+			AssertJUnit.fail("Exception happened in testSignUpPage::" + ExceptionUtils.getFullStackTrace(e));
+		}
+	}
+
+	@Test(description = "Verify Account Signup", dependsOnMethods = { "testDeleteAccountFromApi" }, priority = 1)
 	public void testAdminSignup() {
 		try {
-			user = getAutoAdminUser();
+			user = getDefaultAdminUser();
 			loadMainPage();
 			mainPage.goToSignUpPageFromHeader();
 			log("ADMIN SIGNUP MAIL::" + user.getUserEmail());
@@ -28,7 +44,7 @@ public class Admin_SignUp_Test extends TestMain {
 		}
 	}
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testAdminSignup" }, priority = 1)
+	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = { "testAdminSignup" }, priority = 2)
 	public void testSignUpInvitationEmail() {
 		try {
 			String mail = user.getUserEmail();

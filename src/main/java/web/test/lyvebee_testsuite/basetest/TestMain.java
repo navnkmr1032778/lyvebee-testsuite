@@ -194,6 +194,13 @@ public class TestMain extends AppTest {
 		return user;
 	}
 
+	public UserPOJO getDefaultAdminUser() {
+		UserPOJO user = new UserPOJO();
+		user.setUserEmail(TestConstant.DEFAULT_ADMIN_USER_USERNAME);
+		user.setUserName("Naveen");
+		return user;
+	}
+
 	public UserPOJO getCurrentAdminUser() {
 		UserPOJO user = new UserPOJO();
 		user.setUserEmail(TestConstant.ADMIN_MAIL_CURRENT);
