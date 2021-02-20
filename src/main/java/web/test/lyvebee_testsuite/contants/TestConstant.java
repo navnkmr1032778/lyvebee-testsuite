@@ -2,11 +2,10 @@ package web.test.lyvebee_testsuite.contants;
 
 public class TestConstant {
 	public static String LYVEBEE_BASE_PAGE_URL = "https://staging-ssr.lyvebee.com/";
-//	public static String LYVEBEE_BASE_PAGE_URL = "https://tesyznmtfcktl.lyvebee.com/";
 
-	public static String CLASSPAGE_URL = "https://www.lyvebee.com/classes";
 	public static String WHITELABEL_BASE_PAGE_URL_CURRENT = "https://tesyznmtfcktl.my.lyvebee.com/";
 	public static String ADMIN_MAIL_CURRENT = "test20210216012400@clrmail.com";
+	public static String CLASSPAGE_URL = WHITELABEL_BASE_PAGE_URL_CURRENT + "/classes";
 
 	// Mail Subject
 	public static final String MAIL_USER_TEAMMEMBER_INVITATION_SUBJECT_STRING = "Invitation to join";

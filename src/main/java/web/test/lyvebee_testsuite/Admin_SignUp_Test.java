@@ -23,6 +23,9 @@ public class Admin_SignUp_Test extends TestMain {
 			loadDeleteAccountFromAPIMainPage();
 			if (!instructorDeleteAcccountFromAPI.deleteInstructorAccount(TestConstant.DEFAULT_INSTRUCTOR_USER_USERNAME))
 				Assert.fail("INSTRUCTOR ACCOUNT FAILED TO DELETE");
+			loadDeleteAccountFromAPIMainPage();
+			if (!instructorDeleteAcccountFromAPI.deleteInstructorAccount(TestConstant.DEFAULT_CUSTOMER_USER_EMAIL))
+				Assert.fail("CUSTOMER ACCOUNT FAILED TO DELETE");
 		} catch (Exception e) {
 			e.printStackTrace();
 			AssertJUnit.fail("Exception happened in testSignUpPage::" + ExceptionUtils.getFullStackTrace(e));
