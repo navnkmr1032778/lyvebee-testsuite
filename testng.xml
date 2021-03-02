@@ -25,9 +25,8 @@
 			<class name="web.test.lyvebee_testsuite.User_AllSignIn_Test" />
 			<class
 				name="web.test.lyvebee_testsuite.Instructor_CreateClassRegression_Test" />
-			<!-- <class -->
-			<!-- name="web.test.lyvebee_testsuite.Instructor_ClassTimeZoneRegression_Test" 
-				/> -->
+			<class
+				name="web.test.lyvebee_testsuite.Instructor_ClassTimeZoneRegression_Test" />
 			<!-- <class -->
 			<!-- name="web.test.lyvebee_testsuite.User_ClassTimeZoneRegression_Test" 
 				/> -->
