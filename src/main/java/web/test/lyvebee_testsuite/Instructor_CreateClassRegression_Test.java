@@ -41,16 +41,16 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
 				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
 			log("CLASS CARD PRESENT IN UNBOOKED SECTION");
+			List<String> expectedDateList = getDatesList(7);
 
 			int numberOfActualSessions = instructorViewMyClassesPage
 					.getNumberOfSessionPresent(classPojo.getClassName());
-			if (!(numberOfActualSessions == 5))
-				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 5");
+			if (!(numberOfActualSessions == expectedDateList.size()))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting"
+						+ expectedDateList.size());
 
 			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesList(7);
 
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
@@ -112,15 +112,16 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
 				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
 
+			List<String> expectedDateList = getDatesList(14);
+
 			int numberOfActualSessions = instructorViewMyClassesPage
 					.getNumberOfSessionPresent(classPojo.getClassName());
-			if (!(numberOfActualSessions == 10))
-				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 10");
+			if (!(numberOfActualSessions == expectedDateList.size()))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting"
+						+ expectedDateList.size());
 
 			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesList(14);
 
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
@@ -181,16 +182,16 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
 				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
 
+			List<String> expectedDateList = getDatesList(21);
+
 			int numberOfActualSessions = instructorViewMyClassesPage
 					.getNumberOfSessionPresent(classPojo.getClassName());
-			if (!(numberOfActualSessions == 15))
-				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 10");
+			if (!(numberOfActualSessions == expectedDateList.size()))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting"
+						+ expectedDateList.size());
 
 			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesList(21);
-
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
 
@@ -250,16 +251,16 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
 				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
 
+			List<String> expectedDateList = getDatesList(28);
+
 			int numberOfActualSessions = instructorViewMyClassesPage
 					.getNumberOfSessionPresent(classPojo.getClassName());
-			if (!(numberOfActualSessions == 20))
-				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 10");
+			if (!(numberOfActualSessions == expectedDateList.size()))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting"
+						+ expectedDateList.size());
 
 			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesList(28);
-
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
 
@@ -319,16 +320,16 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
 				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
 
+			List<String> expectedDateList = getDatesList(35);
+
 			int numberOfActualSessions = instructorViewMyClassesPage
 					.getNumberOfSessionPresent(classPojo.getClassName());
-			if (!(numberOfActualSessions == 25))
-				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 10");
+			if (!(numberOfActualSessions == expectedDateList.size()))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting"
+						+ expectedDateList.size());
 
 			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesList(35);
-
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
 
@@ -388,16 +389,16 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			if (!instructorViewMyClassesPage.isClassSessionPresentInUnBooked(classPojo.getClassName()))
 				Assert.fail("Created class session not present in the UnBooked section of ViewMyClasses page.");
 
+			List<String> expectedDateList = getDatesList(1);
+
 			int numberOfActualSessions = instructorViewMyClassesPage
 					.getNumberOfSessionPresent(classPojo.getClassName());
-			if (!(numberOfActualSessions == 1))
-				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting 1");
+			if (!(numberOfActualSessions == expectedDateList.size()))
+				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting"
+						+ expectedDateList.size());
 
 			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesList(1);
-
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates are::" + sessionDateList + "but expecting " + expectedDateList);
 
