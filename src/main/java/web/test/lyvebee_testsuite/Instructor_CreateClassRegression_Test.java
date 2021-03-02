@@ -47,7 +47,7 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 					.getNumberOfSessionPresent(classPojo.getClassName());
 			if (!(numberOfActualSessions == expectedDateList.size()))
 				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT ARE :: " + numberOfActualSessions + "But expecting"
-						+ expectedDateList.size());
+						+ expectedDateList.size() + " " + expectedDateList);
 
 			List<String> sessionDateList = instructorViewMyClassesPage.getSessionDateList(classPojo.getClassName());
 			Collections.sort(sessionDateList);
@@ -459,7 +459,7 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 		List<String> dates = new ArrayList<String>();
 		LocalDate localDate2;
 
-		for (int i = 1; i < numberOfDays; i++) {
+		for (int i = 0; i < numberOfDays; i++) {
 			localDate2 = localDate.plusDays(i);
 			if (localDate2.getDayOfWeek().equals(DayOfWeek.SUNDAY)
 					|| localDate2.getDayOfWeek().equals(DayOfWeek.SATURDAY))
