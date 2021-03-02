@@ -443,6 +443,7 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 
 		ZonedDateTime localDate = LocalDateTime.now().atZone(oldZone);// For reference
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
+		log("Current time::" + localDate);
 		List<String> dates = new ArrayList<String>();
 		ZonedDateTime localDate2;
 
@@ -462,6 +463,7 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 
 		ZonedDateTime localDate = LocalDateTime.now().atZone(oldZone);// For reference
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy (EEEE)");
+		log("Current time::" + localDate);
 		List<String> dates = new ArrayList<String>();
 		ZonedDateTime localDate2;
 
