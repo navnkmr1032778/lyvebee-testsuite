@@ -10,8 +10,8 @@ import web.test.lyvebee_testsuite.contants.TestConstant;
 
 public class Instructor_CreateClassFromAlert_Test extends Instructor_SignIn_Test {
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = {
-			"testSignInInvitationEmailInstructor" }, priority = 4)
+//	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = {
+//			"testSignInInvitationEmailInstructor" }, priority = 4)
 	public void testCreateFirstClassFromAlert() {
 		try {
 			ClassPOJO classPojo = getClassPojo();
@@ -28,8 +28,8 @@ public class Instructor_CreateClassFromAlert_Test extends Instructor_SignIn_Test
 		}
 	}
 
-	@Test(description = "Check SignUp Mail Consumer", dependsOnMethods = {
-			"testCreateFirstClassFromAlert" }, priority = 5)
+	@Test(description = "Check SignUp Mail Consumer", priority = 5)
+
 	public void testLyveBeeAccountFromAlerts() {
 		try {
 			mainPage.goToMyProfilePageFromMobileView();
