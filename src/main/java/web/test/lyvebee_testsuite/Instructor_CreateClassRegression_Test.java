@@ -3,7 +3,6 @@ package web.test.lyvebee_testsuite;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -441,11 +440,11 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 	public List<String> getDatesList(int numberOfDays) {
 		ZoneId oldZone = ZoneId.of("GMT+05:30");
 
-		ZonedDateTime localDate = LocalDateTime.now().atZone(oldZone);// For reference
+		LocalDateTime localDate = LocalDateTime.now().atZone(oldZone).toLocalDateTime();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy");
 		log("Current time::" + localDate);
 		List<String> dates = new ArrayList<String>();
-		ZonedDateTime localDate2;
+		LocalDateTime localDate2;
 
 		for (int i = 0; i < numberOfDays; i++) {
 			localDate2 = localDate.plusDays(i);
@@ -461,11 +460,11 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 	public List<String> getDatesListForClassProfile(int numberOfDays) {
 		ZoneId oldZone = ZoneId.of("GMT+05:30");
 
-		ZonedDateTime localDate = LocalDateTime.now().atZone(oldZone);// For reference
+		LocalDateTime localDate = LocalDateTime.now().atZone(oldZone).toLocalDateTime();// For reference
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy (EEEE)");
 		log("Current time::" + localDate);
 		List<String> dates = new ArrayList<String>();
-		ZonedDateTime localDate2;
+		LocalDateTime localDate2;
 
 		for (int i = 0; i < numberOfDays; i++) {
 			localDate2 = localDate.plusDays(i);
