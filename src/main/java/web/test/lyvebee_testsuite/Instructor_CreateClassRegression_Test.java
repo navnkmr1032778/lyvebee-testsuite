@@ -440,12 +440,12 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 		List<String> dates = new ArrayList<String>();
 		LocalDateTime localDate2;
 		int numeberOfWeek = numberOfDays / 7;
-		for (int i = 0; i <= numeberOfWeek; i++) {
+		for (int i = 0; i < numeberOfWeek; i++) {
 			for (int j = 0; j < 7; j++) {
 				localDate2 = localDate.plusDays(j);
 				if (localDate2.getDayOfWeek().equals(DayOfWeek.SUNDAY)
 						|| localDate2.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
-					localDate = localDate.plusDays(j + 1);
+					localDate = localDate.plusDays(j + 2);
 					break;
 				}
 				dates.add(localDate2.format(formatter));
@@ -465,12 +465,12 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 		List<String> dates = new ArrayList<String>();
 		LocalDateTime localDate2;
 		int numeberOfWeek = numberOfDays / 7;
-		for (int i = 0; i <= numeberOfWeek; i++)
-			for (int j = 0; j < numberOfDays; j++) {
+		for (int i = 0; i < numeberOfWeek; i++)
+			for (int j = 0; j < 7; j++) {
 				localDate2 = localDate.plusDays(j);
 				if (localDate2.getDayOfWeek().equals(DayOfWeek.SUNDAY)
 						|| localDate2.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
-					localDate = localDate.plusDays(j + 1);
+					localDate = localDate.plusDays(j + 2);
 					break;
 				}
 				dates.add(localDate2.format(formatter));
