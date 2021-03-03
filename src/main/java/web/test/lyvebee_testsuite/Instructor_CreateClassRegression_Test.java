@@ -67,8 +67,8 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			"testCreateClassForThisWeekPeriod" }, priority = 3)
 	public void testCreateClassForThisWeekPeriodInClassProfilePage() {
 		try {
-			loadSearchClassPage();
-			userSearchClassesPage.searchClass(classPojo.getClassName());
+			loadWhiteLabelMainPage();
+			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
 
@@ -137,8 +137,8 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			"testCreateClassForThisWeekAndNextWeekPeriod" }, priority = 5)
 	public void testCreateClassForThisWeekAndNextWeekPeriodInClassProfilePage() {
 		try {
-			loadSearchClassPage();
-			userSearchClassesPage.searchClass(classPojo.getClassName());
+			loadWhiteLabelMainPage();
+			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
 
@@ -206,8 +206,8 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			"testCreateClassForThisWeekAndNext2WeekPeriod" }, priority = 7)
 	public void testCreateClassForThisWeekAndNext2WeekPeriodInClassProfilePage() {
 		try {
-			loadSearchClassPage();
-			userSearchClassesPage.searchClass(classPojo.getClassName());
+			loadWhiteLabelMainPage();
+			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
 
@@ -275,8 +275,8 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			"testCreateClassForThisWeekAndNext3WeekPeriod" }, priority = 8)
 	public void testCreateClassForThisWeekAndNext3WeekPeriodInClassProfilePage() {
 		try {
-			loadSearchClassPage();
-			userSearchClassesPage.searchClass(classPojo.getClassName());
+			loadWhiteLabelMainPage();
+			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
 
@@ -344,8 +344,8 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			"testCreateClassForThisWeekAndNext4WeekPeriod" }, priority = 10)
 	public void testCreateClassForThisWeekAndNext4WeekPeriodInClassProfilePage() {
 		try {
-			loadSearchClassPage();
-			userSearchClassesPage.searchClass(classPojo.getClassName());
+			loadWhiteLabelMainPage();
+			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
 
@@ -413,8 +413,8 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			"testCreateClassForDateRangePeriod" }, priority = 12)
 	public void testCreateClassForDateRangePeriodInClassProfilePage() {
 		try {
-			loadSearchClassPage();
-			userSearchClassesPage.searchClass(classPojo.getClassName());
+			loadWhiteLabelMainPage();
+			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
 
