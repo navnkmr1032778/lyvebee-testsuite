@@ -467,7 +467,7 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 		int numeberOfWeek = numberOfDays / 7;
 		for (int i = 0; i <= numeberOfWeek; i++)
 			for (int j = 0; j < numberOfDays; j++) {
-				localDate2 = localDate.plusDays(i);
+				localDate2 = localDate.plusDays(j);
 				if (localDate2.getDayOfWeek().equals(DayOfWeek.SUNDAY)
 						|| localDate2.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
 					localDate = localDate.plusDays(j + 1);
