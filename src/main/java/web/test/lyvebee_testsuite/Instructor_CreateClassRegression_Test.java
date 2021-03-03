@@ -71,15 +71,14 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+			List<String> expectedDateList = getDatesListForClassProfile(7);
 
-			if (numberOfActualSessions != 5)
+			if (numberOfActualSessions != expectedDateList.size())
 				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
 						+ "But expecting 5");
 
 			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesListForClassProfile(7);
 
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
@@ -141,15 +140,14 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+			List<String> expectedDateList = getDatesListForClassProfile(14);
 
-			if (numberOfActualSessions != 10)
+			if (numberOfActualSessions != expectedDateList.size())
 				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
 						+ "But expecting 5");
 
 			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesListForClassProfile(14);
 
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
@@ -210,15 +208,14 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+			List<String> expectedDateList = getDatesListForClassProfile(21);
 
-			if (numberOfActualSessions != 15)
+			if (numberOfActualSessions != expectedDateList.size())
 				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
 						+ "But expecting 5");
 
 			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesListForClassProfile(21);
 
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
@@ -279,15 +276,14 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+			List<String> expectedDateList = getDatesListForClassProfile(28);
 
-			if (numberOfActualSessions != 20)
+			if (numberOfActualSessions != expectedDateList.size())
 				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
 						+ "But expecting 5");
 
 			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesListForClassProfile(28);
 
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
@@ -348,15 +344,14 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+			List<String> expectedDateList = getDatesListForClassProfile(35);
 
-			if (numberOfActualSessions != 25)
+			if (numberOfActualSessions != expectedDateList.size())
 				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
 						+ "But expecting 5");
 
 			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesListForClassProfile(35);
 
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
@@ -417,15 +412,14 @@ public class Instructor_CreateClassRegression_Test extends Instructor_SignIn_Tes
 			// userSearchClassesPage.searchClass(classPojo.getClassName());
 			userSearchClassesPage.goToClassDetailPage(classPojo.getClassName());
 			int numberOfActualSessions = userClassDetailPage.getNumberOfSessionPresent();
+			List<String> expectedDateList = getDatesListForClassProfile(1);
 
-			if (numberOfActualSessions != 1)
+			if (numberOfActualSessions != expectedDateList.size())
 				Assert.fail("NUMBER OF ACTUAL SESSIONS PRESENT IN CLASS PROFILE ARE :: " + numberOfActualSessions
 						+ "But expecting 5");
 
 			List<String> sessionDateList = userClassDetailPage.getSessionDateList();
 			Collections.sort(sessionDateList);
-
-			List<String> expectedDateList = getDatesListForClassProfile(1);
 
 			if (!sessionDateList.equals(expectedDateList))
 				Assert.fail("Actual class session dates present in class profile page are::" + sessionDateList
